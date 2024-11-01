@@ -93,7 +93,7 @@ function getPlayerData()
     $response = json_decode($response);
     global $rankeddatasolo, $rankeddataflex;
     if (isset($response[1])) {
-        $rankeddatasolo= $response[1];
+        $rankeddatasolo= $response[1    ];
         $rankeddataflex = $response[0];
     } else {
         $rankeddatasolo= $response[0];

@@ -1,10 +1,9 @@
 body {
   margin: 0;
   padding: 20px 0; 
-  line-height: 1.6;
   word-spacing: 1.4px;
   font-family: "Roboto", sans-serif;
-  background-color:  #222831; 
+  background-color:  #1C1C1F;
   min-height: 100vh; 
   color: #eeeeee; 
   overflow-y: auto; 
@@ -44,8 +43,9 @@ h3 {
 h4 {
   font-size: 50px;
   text-align: right;
-  margin-left: 500px;
+  margin-left: auto;
   margin-top: 85px;
+  margin-right: 20px;
 }
 
 .profile_icon {
@@ -77,11 +77,11 @@ h4 {
 .item {
   width: 250px;
   height: 150px;
-  background-color: #393e46;
+  background-color: #31313C;
   font-weight: 600;
   text-align: center;
   border: 5px solid var(--clr-accent);
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .item-1 {
@@ -104,4 +104,27 @@ h4 {
   display: flex;         
   align-items: center;   
   text-align: center;      
+}
+
+.item-4 {
+  flex: 1.5;
+  margin-top: 20px;
+
+}
+
+.wins {
+  color: #32de84;
+}
+
+.losses {
+  color: #E52B50;
+}
+.winrate {
+  color: #7B7A8E;
+  margin-bottom: 50px;
+}
+h2 {
+  margin-top: auto;
+  margin-bottom: auto;
+  
 }
