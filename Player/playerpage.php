@@ -34,7 +34,7 @@ if ($losses_solo != 0)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player Stats</title>
-    <link rel="stylesheet" href="CSS/style.css?ref=v1"> 
+    <link rel="stylesheet" href="style.css?ref=v1"> 
 </head>
 <body>
   <div class="Head">
@@ -118,9 +118,14 @@ if ($losses_solo != 0)
           </div>
     </div>
 </div>
-<div class="container">
-<div class="item item-4">Champy, staty a tak</div>
-</div>
+  <div class="match-container">
+  <div class="match">Champy, staty a tak</div>
+  <div class="match">Champy, staty a tak</div>
+  <div class="match">Champy, staty a tak</div>
+  <div class="match">Champy, staty a tak</div>
+  <div class="match">Champy, staty a tak</div>
+
+  </div>
 </body>
 </html>
 
