@@ -14,6 +14,7 @@ $losses_flex = isset($_SESSION['losses_flex']) ? $_SESSION['losses_flex'] : 0;
 $tier_flex = isset($_SESSION['tier_flex']) ? $_SESSION['tier_flex'] : 'Unranked';
 $rank_flex = isset($_SESSION['rank_flex']) ? $_SESSION['rank_flex'] : '';
 $lp_flex = isset($_SESSION['lp_flex']) ? $_SESSION['lp_flex'] : 0;
+$alldata = isset($SESSION['mdata']) ? $_SESSION['mdata'] : null;
 
 if ($losses_flex != 0)
 {
