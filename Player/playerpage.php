@@ -14,7 +14,7 @@ $losses_flex = isset($_SESSION['losses_flex']) ? $_SESSION['losses_flex'] : 0;
 $tier_flex = isset($_SESSION['tier_flex']) ? $_SESSION['tier_flex'] : 'Unranked';
 $rank_flex = isset($_SESSION['rank_flex']) ? $_SESSION['rank_flex'] : '';
 $lp_flex = isset($_SESSION['lp_flex']) ? $_SESSION['lp_flex'] : 0;
-$alldata = isset($SESSION['mdata']) ? $_SESSION['mdata'] : null;
+$alldata = $_SESSION['mdata'];
 
 if ($losses_flex != 0)
 {
@@ -34,7 +34,7 @@ if ($losses_solo != 0)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player Stats</title>
-    <link rel="stylesheet" href="style.css?ref=v1"> 
+    <link rel="stylesheet" href="style.css?v=20210819"> 
 </head>
 <body>
   <div class="Head">
@@ -117,16 +117,80 @@ if ($losses_solo != 0)
                </div>
           </div>
     </div>
-</div>
-  <div class="match-container">
-  <div class="match">Champy, staty a tak</div>
-  <div class="match">Champy, staty a tak</div>
-  <div class="match">Champy, staty a tak</div>
-  <div class="match">Champy, staty a tak</div>
-  <div class="match">Champy, staty a tak</div>
-
   </div>
+  <?php
+
+  /*print "<pre>";
+  print_r($alldata);
+  print "<pre>";
+  */
+  $i = 0;
+  foreach($alldata as $data)
+  {
+    $kda = $alldata[$i]['playerStats'][1] . '/' . $alldata[$i]['playerStats'][2] . '/' . $alldata[$i]['playerStats'][3];
+    $kdanum = ($alldata[$i]['playerStats'][1] + $alldata[$i]['playerStats'][3] ) / $alldata[$i]['playerStats'][2];
+    $kdanum = round($kdanum, 2);
+    $cs = $alldata[$i]['playerStats'][4];
+    $champion = $alldata[$i]['playerStats'][0];
+    $items = [
+      $alldata[$i]['items'][0],
+      $alldata[$i]['items'][1],
+      $alldata[$i]['items'][2],
+      $alldata[$i]['items'][3],
+      $alldata[$i]['items'][4],
+      $alldata[$i]['items'][5],
+      $alldata[$i]['items'][6],
+    ];
+    $summonerspells = [
+      $alldata[$i]['summonerspell1'],
+      $alldata[$i]['summonerspell2'],
+    ];
+    $primaryrune = $alldata[$i]['runes']['mainRune'];
+    $secondaryrune = $alldata[$i]['runes']['secondaryRune'];
+    $win = $alldata[$i]['playerStats'][5];
+    $gametime = $alldata[$i]['matchTime'];
+
+    echo '
+      <div class="match-container">
+  <div class="match '.$win.'">
+
+  <div class="content-wrapper">
+    <div class="left-section">
+          <img class="champ-icon" src="Datadragon/img/champion/'.$champion.'.png" alt="">
+      <div class="summoner-spells">
+
+        <img class="spell spell-1" src="Datadragon/img/summonerspell/'.$summonerspells[0].'.png" alt="">
+        <img class="spell spell-2" src="Datadragon/img/summonerspell/'.$summonerspells[1].'.png" alt="">
+      </div>
+      <div class="runes">
+        <img class="rune-main '.$win.'" src="Datadragon/img/runes/primary/'.$primaryrune.'.png" alt="">
+        <img class="rune-secondary '.$win.'" src="Datadragon/img/runes/secondary/'.$secondaryrune.'.png" alt="">
+      </div>
+    </div>
+    <div class="middle-section">
+    <div class="kda">'. $kda .'</div>
+      <div class="kda-calculation">' . $kdanum . ' (KDA)</div>
+      <div class="cs-kp">CS: ' . $cs . '</div>
+      <div class="items">
+       <img class = "match-item" src="Datadragon/img/item/'.$items[0].'.png" alt="">
+       <img class = "match-item" src="Datadragon/img/item/'.$items[1].'.png" alt="">
+       <img class = "match-item" src="Datadragon/img/item/'.$items[2].'.png" alt="">
+       <img class = "match-item" src="Datadragon/img/item/'.$items[3].'.png" alt="">
+       <img class = "match-item" src="Datadragon/img/item/'.$items[4].'.png" alt="">
+       <img class = "match-item" src="Datadragon/img/item/'.$items[5].'.png" alt="">
+       <img class = "match-item" src="Datadragon/img/item/'.$items[6].'.png" alt="">
+    </div>  
+      </div>
+    </div>
+</div>
+  </div>
+
+    ';
+    $i++;
+  }
+  ?>
 </body>
 </html>
+
 
 

@@ -129,7 +129,7 @@ h2 {
   margin-bottom: auto;
   
 }
-
+/*AAAAAAAAAAAAAAAAAAAAAAAAA */
 .match-container {
   margin-top: 15px;
   width: 90%;
@@ -140,11 +140,117 @@ h2 {
   gap: 2em;
 }
 .match {
-  padding: 1em; 
+  padding: 1em;
   display: flex;
-  flex-direction: column;
-  height: 180px;
-  background-color: #31313C; /*AK VYHRA BLUE AK PREHRA RED */
-  border: 5px solid var(--clr-accent);
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #31313C; /* Color based on win/lose */
   border-radius: 15px;
 }
+
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.left-section, .middle-section, .right-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+/* VSETKO V LAVO */
+
+.left-section {
+  align-items: flex-start;
+}
+.champ-icon {
+  width: 85px;
+  height: 85px;
+  background-color: #777;
+}
+
+.summoner-spells {
+  display: flex;
+  gap: 5px;
+}
+
+.spell {
+  width: 40px;
+  height: 40px;
+  background-color: #999;
+  border-radius: 5px;
+}
+
+.runes {
+  display: flex;
+  gap: 5px;
+}
+
+.rune-main.win, .rune-secondary.win {
+  width: 40px;
+  height: 40px;
+  background-color: #4171D6;
+  border-radius: 50%;
+}
+.rune-main.loss, .rune-secondary.loss{
+  width: 40px;
+  height: 40px;
+  background-color: #59343B;;
+  border-radius: 50%;
+}
+
+
+/* STRED */
+.middle-section {
+  flex: 1;
+  text-align: left;
+  padding-left: 25px;
+
+}
+
+
+.match-item {
+  width: 40px; 
+  height: 40px;
+  background-color: #aaa;
+  border: 1px solid #666;
+}
+
+.items {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.kda, .kda-calculation, .cs-kp {
+  font-size: 24px;
+}
+
+/* V PRAVO */
+.right-section {
+  align-items: flex-end;
+}
+
+.match-time{
+  padding-top: 130px;
+  text-align: center;
+}
+.queue-info { 
+  font-size: 16px;
+  text-align: center;
+}
+
+.match.win {
+
+  background-color: #4171D6;
+}
+
+.match.loss {
+  background-color: #59343B;;
+}
+
+
+
+
+

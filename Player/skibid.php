@@ -148,17 +148,15 @@ function getPlayerData()
         array_push($playerstats, $pid->championName, $pid->kills, $pid->deaths, $pid->assists, $pid->totalMinionsKilled+$pid->neutralMinionsKilled);
         if ($pid->win != false)
         {
-            array_push($playerstats, 1);
+            array_push($playerstats, "win");
         } else {
-            array_push($playerstats, 0);
+            array_push($playerstats, "loss");
         }
         $player_items = [];
         array_push($player_items, $pid->item0, $pid->item1, $pid->item2, $pid->item3, $pid->item4, $pid->item5, $pid->item6);
         $match_time = $match_data->info->gameDuration;
         $match_minutes = floor($match_time/60);
         $match_seconds = $match_time%60;
-
-        $spells = ['Cleanse','','Exhaust','Flash','','Ghost','Heal','','','','Smite','Teleport','','Ignite','','','','','','','Barrier'];
         $summoner_spell1 = $pid->summoner1Id;
         $summoner_spell2 = $pid->summoner2Id;
 
