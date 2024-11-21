@@ -1,0 +1,27 @@
+body {
+  word-spacing: 1.4px;
+  font-family: "Roboto", sans-serif;
+  background-color: #1C1C1F;
+  min-height: 100vh;
+  color: #eeeeee;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  background-color: #31313C;
+  font-weight: 600;
+  font-size: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Ensures text and image stack vertically */
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  padding-top: 50px;
+  margin-top: -75px;
+
+}

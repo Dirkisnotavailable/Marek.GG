@@ -12,8 +12,7 @@
     if ($_SERVER['REQUEST_METHOD'] == 'GET')
     require 'Player/form.php';
     else if ($_SERVER['REQUEST_METHOD'] == 'POST')
-    require 'Player/skibid.php';
-
+    require 'Player/searchprocess.php';
 ?>
     
 </body>

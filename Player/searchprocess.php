@@ -59,8 +59,8 @@ function searchPlayer()
     $fullurl = "$server_url/lol/summoner/v4/summoners/by-puuid/$puuid?api_key=$api_key";
     curl_setopt($ch, CURLOPT_URL, $fullurl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 5); // Set a reasonable timeout.
-    curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); // Avoid persistent connections.
+    curl_setopt($ch, CURLOPT_TIMEOUT, 5); 
+    curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); 
     $response = json_decode(curl_exec($ch));
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     if ($httpCode != 200)
@@ -92,8 +92,15 @@ function getPlayerData()
     $response = json_decode($response);
     global $rankeddatasolo, $rankeddataflex;
     if (isset($response[1])) {
-        $rankeddatasolo= $response[1    ];
-        $rankeddataflex = $response[0];
+        // Ak by mal iba soloq rank
+        if($response[0]->queuetype = "RANKED_SOLO_5x5 ") // Rito z nejakeho dovodu obcas vyhodi soloq do [0] a obcas do [1] ???
+        {
+            $rankeddatasolo = $response[0];
+            $rankeddataflex = $response[1];
+        } else {
+            $rankeddatasolo= $response[1];
+            $rankeddataflex = $response[0];
+        }
     } else {
         $rankeddatasolo= $response[0];
     }
@@ -104,7 +111,7 @@ function getPlayerData()
     $player_rank_tier_solo = $rankeddatasolo->tier;
     $player_rank_solo = $rankeddatasolo->rank;
     $player_LP_solo = $rankeddatasolo->leaguePoints;
-    //FlexQ variables
+    // FlexQ variables
     $player_wins_flex = $rankeddataflex->wins;
     $player_losses_flex = $rankeddataflex->losses;
     $player_rank_tier_flex = $rankeddataflex->tier;
@@ -119,16 +126,16 @@ function getPlayerData()
         $fullurl = "$main_url/lol/match/v5/matches/by-puuid/$puuid/ids?start=0&count=20&api_key=$api_key";
         curl_setopt($ch, CURLOPT_URL, $fullurl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5); // Set a reasonable timeout.
-        curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); // Avoid persistent connections.
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); 
         $matches_id = curl_exec($ch);
         $matches_id = json_decode($matches_id);
         //Ziskat samotne data
         $match_url = "$main_url/lol/match/v5/matches/$matches_id[$m]?api_key=$api_key";
         curl_setopt($ch, CURLOPT_URL, $match_url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5); // Set a reasonable timeout.
-        curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); // Avoid persistent connections.
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); 
         $match_data = curl_exec($ch);
         $match_data = json_decode($match_data);
         $participants = $match_data->metadata->participants;
@@ -152,6 +159,7 @@ function getPlayerData()
         } else {
             array_push($playerstats, "loss");
         }
+        
         $player_items = [];
         array_push($player_items, $pid->item0, $pid->item1, $pid->item2, $pid->item3, $pid->item4, $pid->item5, $pid->item6);
         $match_time = $match_data->info->gameDuration;
@@ -163,8 +171,8 @@ function getPlayerData()
         $runes_url = "http://ddragon.leagueoflegends.com/cdn/10.16.1/data/en_US/runesReforged.json";
         curl_setopt($ch, CURLOPT_URL, $runes_url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5); // Set a reasonable timeout.
-        curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); // Avoid persistent connections.
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5); 
+        curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); 
         $runes_data = curl_exec($ch);
         $runes_data = json_decode($runes_data);
         for($y=0;$y<5;$y++){
@@ -231,7 +239,7 @@ function getPlayerData()
     $alldata = [];
 
 
-     for($m = 0; $m < 5; $m++)
+     for($m = 0; $m < 10; $m++)
      {
         getMatchhistory();
      }

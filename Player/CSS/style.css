@@ -5,18 +5,18 @@ body {
   font-family: "Roboto", sans-serif;
   background-color:  #1C1C1F;
   min-height: 100vh;
-  color: #eeeeee; 
+  color: #eeeeee;
   overflow-y: auto; 
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center;    /* Center align items horizontally */
+  flex-direction: column; 
+  align-items: center;    
 }
 
 .Head {
   width: 90%;             
   max-width: 1200px;     
-  margin: 0 auto;        /* Center it horizontally */
-  margin-bottom: 20px;   /* Space between Head and container */
+  margin: 0 auto;       
+  margin-bottom: 20px;   
 }
 
 .ranked-data {
@@ -26,6 +26,7 @@ body {
 
 .rank_icon {
   height: 150px; 
+  width: 150px;
   margin-bottom: 1em;
 }
 
@@ -144,7 +145,7 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #31313C; /* Color based on win/lose */
+  background-color: #31313C; 
   border-radius: 15px;
 }
 
@@ -213,8 +214,8 @@ h2 {
 .match-item {
   width: 40px; 
   height: 40px;
-  background-color: #aaa;
-  border: 1px solid #666;
+  background-color: gray;
+  border: 2px solid #666;
 }
 
 .items {
@@ -230,6 +231,7 @@ h2 {
 /* V PRAVO */
 .right-section {
   align-items: flex-end;
+  border: 5px red solid;
 }
 
 .match-time{
@@ -249,8 +251,5 @@ h2 {
 .match.loss {
   background-color: #59343B;;
 }
-
-
-
 
 

@@ -1,5 +1,28 @@
--- Urobit stranku kde budú streamy proplayerov ktorí práve streamuju [EZ]
--- Urobit aby rank a summoner iconky boli vidiet [DONE]
--- Urobit aby winrate pri hracovi ukazovalo [DONE]
--- Urobit aby bolo vidiet match history hraca [NEXT]
--- Urobit aby bolo vidiet champov co hral hrac a ich winrate
+0 - 30%
+-- Urobit stranku kde rank a summoner iconky budu vidiet [DONE]
+-- Urobit stranku kde winrate pri hracovi bude ukazovat[DONE]
+-- Podla ranku sa na stranke zobrazi ikonka ranku [DONE]
+-- Urobit aby bolo vidiet match history hraca {
+    Champ hrac - DONE
+    Ikonka champa - DONE
+    KDA - DONE
+    KDA VYPOCET - DONE
+    summoner spelly hraca - DONE
+    Runy hraca - DONE
+    Itemy hraca - DONE
+}
+-----------
+30%-60%
+-- Urobit stranku kde budú streamy proplayerov ktorí práve streamuju [NEXT]
+-- Urobit aby bolo vidiet champov co hral hrac a ich winrate za poslednych mozno 20 hier [NEXT]
+-- Pridat do match history hraca Blue team a red team(ich champovia)
+-- Zlepšiť dizajn match history (Nak sa viac hodi k ostatku stranky)
+-- Spraviť navbar, na preklikavanie medzi strankou na streamy, vyhladavanim hraca
+-----------
+60%-100%
+-- Zrýchliť loadovanie stranky(???????????)
+-- ????
+-- ????
+-- ????
+
+

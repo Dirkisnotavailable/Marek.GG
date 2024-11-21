@@ -15,7 +15,7 @@ $tier_flex = isset($_SESSION['tier_flex']) ? $_SESSION['tier_flex'] : 'Unranked'
 $rank_flex = isset($_SESSION['rank_flex']) ? $_SESSION['rank_flex'] : '';
 $lp_flex = isset($_SESSION['lp_flex']) ? $_SESSION['lp_flex'] : 0;
 $alldata = $_SESSION['mdata'];
-
+// Zobrazuje ikonku a hodnoty ak hrac hral SoloQ alebo FlexQ
 if ($losses_flex != 0)
 {
   $winrate_flex = ($wins_flex/($wins_flex+$losses_flex) * 100);
@@ -33,8 +33,8 @@ if ($losses_solo != 0)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Stats</title>
-    <link rel="stylesheet" href="style.css?v=20210819"> 
+    <title><?php echo $nickname?>'s Stats</title>
+    <link rel="stylesheet" href="CSS/style.css?v=20210819"> 
 </head>
 <body>
   <div class="Head">
@@ -55,7 +55,7 @@ if ($losses_solo != 0)
             <h2>Ranked Solo/Duo</h2>
             <?php 
               if (isset($winrate_solo)){
-               $img_url = "Datadragon/Ranked/".($tier_solo).".png";
+               $img_url = "Datadragon/Ranked/".($tier_solo)."_converted.webp";
               } else {
                $img_url = "Datadragon/Ranked/Unranked.png";
               }
@@ -88,9 +88,9 @@ if ($losses_solo != 0)
             <h2>Ranked Flex</h2>
             <?php 
             if (isset($winrate_flex)){
-              $img_url = "Datadragon/Ranked/".($tier_flex).".png";
+              $img_url = "Datadragon/Ranked/".($tier_flex)."_converted.webp";
             } else {
-              $img_url = "Datadragon/Ranked/Unranked.png";
+              $img_url = "Datadragon/Ranked/Unranked_converted.webp";
             }
             ?>
             <img src="<?php echo  $img_url; ?>" alt="" class="rank_icon">
@@ -128,7 +128,11 @@ if ($losses_solo != 0)
   foreach($alldata as $data)
   {
     $kda = $alldata[$i]['playerStats'][1] . '/' . $alldata[$i]['playerStats'][2] . '/' . $alldata[$i]['playerStats'][3];
-    $kdanum = ($alldata[$i]['playerStats'][1] + $alldata[$i]['playerStats'][3] ) / $alldata[$i]['playerStats'][2];
+    if ($alldata[$i]['playerStats'][2] == 0){
+      $kdanum = ($alldata[$i]['playerStats'][1] + $alldata[$i]['playerStats'][3] ) / 1;
+    } else {
+      $kdanum = ($alldata[$i]['playerStats'][1] + $alldata[$i]['playerStats'][3] ) / $alldata[$i]['playerStats'][2];
+    }
     $kdanum = round($kdanum, 2);
     $cs = $alldata[$i]['playerStats'][4];
     $champion = $alldata[$i]['playerStats'][0];
