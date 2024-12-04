@@ -10,14 +10,14 @@
     summoner spelly hraca - DONE
     Runy hraca - DONE
     Itemy hraca - DONE
+-- Spraviť navbar, na preklikavanie medzi strankou na streamy, vyhladavanim hraca [DONE]
 }
 -----------
 30%-60%
 -- Urobit stranku kde budú streamy proplayerov ktorí práve streamuju [NEXT]
--- Urobit aby bolo vidiet champov co hral hrac a ich winrate za poslednych mozno 20 hier [NEXT]
+-- Urobit aby bolo vidiet champov co hral hrac a ich winrate za poslednych 10 hier [NEXT]
 -- Pridat do match history hraca Blue team a red team(ich champovia)
--- Zlepšiť dizajn match history (Nak sa viac hodi k ostatku stranky)
--- Spraviť navbar, na preklikavanie medzi strankou na streamy, vyhladavanim hraca
+-- Zlepšiť dizajn stranky
 -----------
 60%-100%
 -- Zrýchliť loadovanie stranky(???????????)

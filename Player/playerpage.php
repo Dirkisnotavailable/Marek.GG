@@ -33,10 +33,15 @@ if ($losses_solo != 0)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $nickname?>'s Stats</title>
-    <link rel="stylesheet" href="CSS/style.css?v=20210819"> 
+    <title>Rise.gg - <?php echo $nickname?>'s Stats</title>
+    <link rel="stylesheet" href="CSS/playerpagestyle.css?v=20210819">
 </head>
 <body>
+      <div class="navbar">
+        <a href="http://localhost/Testik/index.php">Main Page</a>
+        <a href="http://localhost/Testik/provods.php">PRO Vods</a>
+    </div>
+
   <div class="Head">
     <div class="item item-0">
     <?php
@@ -49,7 +54,8 @@ if ($losses_solo != 0)
 
   </div>
 <div class="container">
-  <div class="item item-1">Champy, staty a tak</div>
+  <div class="item item-1">
+    <h5>Champy, staty a tak</h5></div>
       <div class="item item-2">
           <div class="ranked-data">
             <h2>Ranked Solo/Duo</h2>

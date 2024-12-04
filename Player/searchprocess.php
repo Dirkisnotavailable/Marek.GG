@@ -32,8 +32,8 @@ function getPuuid($searchname, $regions, $regionIndex)
 
     curl_setopt($ch, CURLOPT_URL, $fullurl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 5); // Set a reasonable timeout.
-    curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); // Avoid persistent connections.
+    curl_setopt($ch, CURLOPT_TIMEOUT, 5); 
+    curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); 
     $response = json_decode(curl_exec($ch));
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
@@ -92,17 +92,15 @@ function getPlayerData()
     $response = json_decode($response);
     global $rankeddatasolo, $rankeddataflex;
     if (isset($response[1])) {
-        // Ak by mal iba soloq rank
-        if($response[0]->queuetype = "RANKED_SOLO_5x5 ") // Rito z nejakeho dovodu obcas vyhodi soloq do [0] a obcas do [1] ???
-        {
+        if (isset($response[0]->queuetype) && $response[0]->queuetype == "RANKED_SOLO_5x5") {
             $rankeddatasolo = $response[0];
             $rankeddataflex = $response[1];
         } else {
-            $rankeddatasolo= $response[1];
+            $rankeddatasolo = $response[1];
             $rankeddataflex = $response[0];
         }
     } else {
-        $rankeddatasolo= $response[0];
+        $rankeddatasolo = $response[0];
     }
     global $player_wins_flex, $player_losses_flex, $player_rank_tier_flex, $player_rank_flex, $player_LP_flex, $player_wins_solo, $player_losses_solo, $player_rank_solo, $player_rank_tier_solo, $player_rank_solo, $player_LP_solo;
     // SoloQ variables
@@ -119,6 +117,9 @@ function getPlayerData()
     $player_LP_flex = $rankeddataflex->leaguePoints;
 }
     getPuuid($searchname, $regions,$regionIndex);
+
+    //----------------
+
 
      function getMatchhistory(){
         global $main_url, $puuid, $api_key, $ch, $m, $alldata;
@@ -168,7 +169,7 @@ function getPlayerData()
         $summoner_spell1 = $pid->summoner1Id;
         $summoner_spell2 = $pid->summoner2Id;
 
-        $runes_url = "http://ddragon.leagueoflegends.com/cdn/10.16.1/data/en_US/runesReforged.json";
+        $runes_url = "http://ddragon.leagueoflegends.com/cdn/14.23.1/data/en_US/runesReforged.json";
         curl_setopt($ch, CURLOPT_URL, $runes_url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_TIMEOUT, 5); 
@@ -181,10 +182,11 @@ function getPlayerData()
                 for ($i = 0; $i < count($runes_data[$y]->slots[0]->runes); $i++) {
                     if ($pid->perks->styles[0]->selections[0]->perk == $runes_data[$y]->slots[0]->runes[$i]->id) {
                         $playermainrune = $runes_data[$y]->slots[0]->runes[$i]->name;
+                        echo $playermainrune;
                         break;
                     }
                 }
-            }
+            } 
         }
 
         for($y=0;$y<5;$y++){
@@ -219,7 +221,7 @@ function getPlayerData()
             }
         }
         $match_info = [
-            'playerStats' => $playerstats,
+            'playerStats' => $playerstats, 
             'items' => $player_items,
             'runes' => [
                 'mainRune' => $playermainrune,
@@ -239,26 +241,25 @@ function getPlayerData()
     $alldata = [];
 
 
-     for($m = 0; $m < 10; $m++)
+     for($m = 0; $m < 20; $m++)
      {
         getMatchhistory();
      }
 
-
-    curl_close($ch);
-    $_SESSION['nickname'] = htmlspecialchars($searchname[0] . "#" . $searchname[1]);
-    $_SESSION['level'] = $summonerlevel;
-    $_SESSION['wins_solo'] = $player_wins_solo;
-    $_SESSION['losses_solo'] = $player_losses_solo;
-    $_SESSION['tier_solo'] = $player_rank_tier_solo;
-    $_SESSION['rank_solo'] = $player_rank_solo;
-    $_SESSION['lp_solo'] = $player_LP_solo;
-    $_SESSION['wins_flex'] = $player_wins_flex;
-    $_SESSION['losses_flex'] = $player_losses_flex;
-    $_SESSION['tier_flex'] = $player_rank_tier_flex;
-    $_SESSION['rank_flex'] = $player_rank_flex;
-    $_SESSION['lp_flex'] = $player_LP_flex;
-    $_SESSION['iconid'] = $profileIconId;
-    $_SESSION['mdata'] = $alldata;
-    header("Location: Player/playerpage.php");
+     curl_close($ch);
+     $_SESSION['nickname'] = htmlspecialchars($searchname[0] . "#" . $searchname[1]);
+     $_SESSION['level'] = $summonerlevel;
+     $_SESSION['wins_solo'] = $player_wins_solo;
+     $_SESSION['losses_solo'] = $player_losses_solo;
+     $_SESSION['tier_solo'] = $player_rank_tier_solo;
+     $_SESSION['rank_solo'] = $player_rank_solo;
+     $_SESSION['lp_solo'] = $player_LP_solo;
+     $_SESSION['wins_flex'] = $player_wins_flex;
+     $_SESSION['losses_flex'] = $player_losses_flex;
+     $_SESSION['tier_flex'] = $player_rank_tier_flex;
+     $_SESSION['rank_flex'] = $player_rank_flex;
+     $_SESSION['lp_flex'] = $player_LP_flex;
+     $_SESSION['iconid'] = $profileIconId;
+     $_SESSION['mdata'] = $alldata;
+     header("Location: Player/playerpage.php");
     ?>
