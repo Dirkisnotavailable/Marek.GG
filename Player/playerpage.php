@@ -14,7 +14,7 @@ $losses_flex = isset($_SESSION['losses_flex']) ? $_SESSION['losses_flex'] : 0;
 $tier_flex = isset($_SESSION['tier_flex']) ? $_SESSION['tier_flex'] : 'Unranked';
 $rank_flex = isset($_SESSION['rank_flex']) ? $_SESSION['rank_flex'] : '';
 $lp_flex = isset($_SESSION['lp_flex']) ? $_SESSION['lp_flex'] : 0;
-$alldata = $_SESSION['mdata'];
+
 // Zobrazuje ikonku a hodnoty ak hrac hral SoloQ alebo FlexQ
 if ($losses_flex != 0)
 {
@@ -129,7 +129,7 @@ if ($losses_solo != 0)
   /*print "<pre>";
   print_r($alldata);
   print "<pre>";
-  */
+  
   $i = 0;
   foreach($alldata as $data)
   {
@@ -198,6 +198,7 @@ if ($losses_solo != 0)
     ';
     $i++;
   }
+    */
   ?>
 </body>
 </html>
