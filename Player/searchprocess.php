@@ -6,6 +6,7 @@ $main_url = "https://europe.api.riotgames.com" ;
 $api_key = "RGAPI-88d91615-a9eb-4813-873a-47e50df212cc";
 $regionIndex = $_POST['region'];
 $searchname = $_POST['playername'];
+$nickname = $searchname;
 $searchname = trim($searchname);
 $searchname = explode("#", $searchname);
 $regions = [
@@ -89,10 +90,10 @@ function getPlayerData()
     curl_setopt($ch, CURLOPT_URL, $fullurl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($ch);
-    $response = json_decode($response);
+    $response = json_decode($response, true);
     global $rankeddatasolo, $rankeddataflex;
     if (isset($response[1])) {
-        if (isset($response[0]->queuetype) && $response[0]->queuetype == "RANKED_SOLO_5x5") {
+        if ($response[0]['queueType'] == "RANKED_SOLO_5x5") {
             $rankeddatasolo = $response[0];
             $rankeddataflex = $response[1];
         } else {
@@ -104,17 +105,17 @@ function getPlayerData()
     }
     global $player_wins_flex, $player_losses_flex, $player_rank_tier_flex, $player_rank_flex, $player_LP_flex, $player_wins_solo, $player_losses_solo, $player_rank_solo, $player_rank_tier_solo, $player_rank_solo, $player_LP_solo;
     // SoloQ variables
-    $player_wins_solo = $rankeddatasolo->wins;
-    $player_losses_solo =  $rankeddatasolo->losses;
-    $player_rank_tier_solo = $rankeddatasolo->tier;
-    $player_rank_solo = $rankeddatasolo->rank;
-    $player_LP_solo = $rankeddatasolo->leaguePoints;
+    $player_wins_solo = $rankeddatasolo['wins'];
+    $player_losses_solo =  $rankeddatasolo['losses'];
+    $player_rank_tier_solo = $rankeddatasolo['tier'];
+    $player_rank_solo = $rankeddatasolo['rank'];
+    $player_LP_solo = $rankeddatasolo['leaguePoints'];
     // FlexQ variables
-    $player_wins_flex = $rankeddataflex->wins;
-    $player_losses_flex = $rankeddataflex->losses;
-    $player_rank_tier_flex = $rankeddataflex->tier;
-    $player_rank_flex = $rankeddataflex->rank;
-    $player_LP_flex = $rankeddataflex->leaguePoints;
+    $player_wins_flex = $rankeddataflex['wins'];
+    $player_losses_flex = $rankeddataflex['losses'];
+    $player_rank_tier_flex = $rankeddataflex['tier'];
+    $player_rank_flex = $rankeddataflex['rank'];
+    $player_LP_flex = $rankeddataflex['leaguePoints'];
 }
     getPuuid($searchname, $regions,$regionIndex);
 
@@ -132,12 +133,9 @@ function getPlayerData()
      $_SESSION['rank_flex'] = $player_rank_flex;
      $_SESSION['lp_flex'] = $player_LP_flex;
      $_SESSION['iconid'] = $profileIconId;
+     $_SESSION['puuid'] = $puuid;
 
      require_once "functions.php";
      require_once "matchhistory.php";
-     echo "<pre>";
-     var_dump(getMatchhistory(htmlspecialchars($searchname[0] . "#" . $searchname[1]), $puuid));
-     echo "</pre>";
-     insertdata(htmlspecialchars($searchname[0] . "#" . $searchname[1]), $summonerlevel, $profileIconId);
-     //header("Location: Player/playerpage.php");
+     header("Location: Player/playerpage.php");
     ?>

@@ -40,17 +40,21 @@
         return $team_data;
     }
 
-    function getMatchhistoryFromAPI($puuid, $match_limit = 10, $last_updated = null){
+    function getMatchhistoryFromAPI($puuid, $last_updated = null, $match_limit = 10){
         $main_url = "https://europe.api.riotgames.com" ;
         $api_key = "RGAPI-88d91615-a9eb-4813-873a-47e50df212cc";
         $ch = curl_init();
+        $update = false;
     global $m, $alldata;
-
     //Ziskat match id
     $match_ids_url = "$main_url/lol/match/v5/matches/by-puuid/$puuid/ids?start=0&count=$match_limit&api_key=$api_key";
     if ($last_updated) {
-        $match_ids_url .= "?since=" . $last_updated->format(DateTime::ATOM); // ISO-8601 format
-    }
+        $gamestart = $last_updated->getTimestamp();
+        $gamestart = $gamestart - 3600;
+        $match_ids_url .= "&startTime=" . $gamestart;
+        $update = true;
+        echo $match_ids_url;
+    } 
     curl_setopt($ch, CURLOPT_URL, $match_ids_url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_TIMEOUT, 5);
@@ -103,7 +107,13 @@
             'redTeam' => extractTeamData($match_data->info->participants, 5, 10),
         ];
     }
-        $matches_data[] = $match_info;
+
+        if ($update)
+        {
+            array_unshift($matches_data, $match_info);
+        } else {
+            $matches_data[] = $match_info;
+        }
 
     }
     curl_close($ch);
@@ -117,7 +127,7 @@
         $match_history = getMatchhistoryFromAPI($puuid, $match_limit);
         echo "<pre>";
         var_dump($match_history); 
-        echo "</pre>";
+         "</pre>";
 
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage();

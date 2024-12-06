@@ -15,13 +15,11 @@ function insertdata($player_nick, $level, $icon){
     global $conn;
     try {
         $stmt = $conn->prepare("
-        INSERT INTO player (id, nickname, level, icon, last_updated)
-        VALUES (null, ?, ?, ?, NOW())
+        INSERT INTO player (id, nickname, level, icon)
+        VALUES (null, ?, ?, ?)
         ON DUPLICATE KEY UPDATE 
             level = VALUES(level), 
-            icon = VALUES(icon), 
-            last_updated = VALUES(last_updated)
-    ");
+            icon = VALUES(icon)");
     $stmt->execute([$player_nick, $level, $icon]);
     }catch(Exception $e){
         echo "<p>Chyba: {$e->getMessage()}</p>";
@@ -43,10 +41,15 @@ function insertmatchdata($player_nick, $data)
         $red_team = $match['redTeam'];
         $stmt = $conn->prepare("
             INSERT INTO player_matches 
-            (match_id, player_id, champion, summoner1, summoner2, rune_primary, rune_secondary, 
-            kills, deaths, assists, CS, item1, item2, item3, item4, item5, item6, item7, match_time)
+            (match_id, player_id, champion, 
+            summoner1, summoner2, rune_primary, 
+            rune_secondary, kills, deaths, 
+            assists, CS, item1, 
+            item2, item3, item4, 
+            item5, item6, item7,
+            result, match_time, date_added)
             VALUES 
-            (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())");
 
             $stmt->execute([
                 $player_nick,
@@ -58,7 +61,7 @@ function insertmatchdata($player_nick, $data)
                 $player_stats['kills'],                      // kills
                 $player_stats['deaths'],                     // deaths
                 $player_stats['assists'],                    // assists
-                $player_stats['farm'],                       // CS (Creep Score)
+                $player_stats['farm'],                       // CS 
                 $items[0],                                   // item1
                 $items[1],                                   // item2
                 $items[2],                                   // item3
@@ -66,14 +69,15 @@ function insertmatchdata($player_nick, $data)
                 $items[4],                                   // item5
                 $items[5],                                   // item6
                 $items[6],
-                $match_time,                                 // match_time (formatted as "i:s")
+                $player_stats['result'],
+                $match_time,
             ]);
     }
 }
 
 //
 
-function getMatchhistory($player_nick, $puuid){
+function getMatchhistory($player_nick, $puuid, $summonerlevel, $profileIconId){
     global $conn; 
     $current_time = new DateTime();
     $api_data = [];
@@ -85,36 +89,37 @@ function getMatchhistory($player_nick, $puuid){
 
         if ($player){
 
-            if ($player['last_updated'] === null) {
-                // If 'last_updated' is null, set it to a very old date, e.g., 1970-01-01
-                $last_updated = new DateTime('1970-01-01');
-                echo "FUNGUJE 1";
-            } else {
-                // Otherwise, use the stored 'last_updated' value
-                $last_updated = new DateTime($player['last_updated']);
-                echo "FUNGUJE 2";
-            }
+            $stmt = $conn->prepare("SELECT date_added FROM player_matches where player_id = ? order by date_added desc limit 1");
+            $stmt->execute([$player_nick]);
+            $date_added = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($current_time->getTimestamp() - $last_updated->getTimestamp() > 3600) { // 1 hour threshold
-                // Fetch new matches from API
+            if ($date_added['date_added'] === null) {
+                $last_updated = new DateTime('1970-01-01');
+            } else {
+                $last_updated = new DateTime($date_added['date_added']);
+            }
+            // echo ($current_time->getTimestamp() - $last_updated->getTimestamp());
+
+            $current_time = $current_time->getTimestamp() + 3600;
+            echo $current_time - $last_updated->getTimestamp();
+            if ($current_time - $last_updated->getTimestamp() > 900) { // 1/2 hour 
+                //FETCH Z API DO DB
                 $api_data = getMatchhistoryFromAPI($puuid, $last_updated);
                 insertmatchdata($player_nick, $api_data);
-                // Merge API data with DB data
                 $db_data = fetchMatchesFromDB($player_nick);
-                echo "FUNGUJE 3";
+                echo "Z API";
                 return $db_data;
             } else {
-                // Use cached data from DB
+                // FETCH Z DB
+                echo "Z DB";
                 return fetchMatchesFromDB($player_nick);
-                echo "FUNGUJE 4";
-
             }
         } else {
-            // Player does not exist, fetch all data from API
+            // KED HRAT NEEXISTUJE
             $api_data = getMatchhistoryFromAPI($puuid);
-             // Save player and matches to DB
+             // SAVE DO DB
+             insertdata($player_nick, $summonerlevel, $profileIconId);
              insertmatchdata($player_nick, $api_data);
-             echo "FUNGUJE 5";
             return $api_data;
         }
 
@@ -125,7 +130,7 @@ function getMatchhistory($player_nick, $puuid){
 //
 function fetchMatchesfromDB($nickname){
 global $conn;
-$stmt = $conn->prepare("SELECT * FROM player_matches WHERE player_id = ?");
+$stmt = $conn->prepare("SELECT * FROM player_matches WHERE player_id = ? order by date_added desc");
 $stmt->execute([$nickname]);
 $databasedata = $stmt->fetchAll(PDO::FETCH_ASSOC);
 return $databasedata;
