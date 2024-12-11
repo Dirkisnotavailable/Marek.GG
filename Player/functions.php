@@ -100,9 +100,9 @@ function getMatchhistory($player_nick, $puuid, $summonerlevel, $profileIconId){
             }
             // echo ($current_time->getTimestamp() - $last_updated->getTimestamp());
 
-            $current_time = $current_time->getTimestamp() + 3600;
+            $current_time = $current_time->getTimestamp();
             echo $current_time - $last_updated->getTimestamp();
-            if ($current_time - $last_updated->getTimestamp() > 900) { // 1/2 hour 
+            if ($current_time - $last_updated->getTimestamp() > 0) { // 1/2 hour 
                 //FETCH Z API DO DB
                 $api_data = getMatchhistoryFromAPI($puuid, $last_updated);
                 insertmatchdata($player_nick, $api_data);

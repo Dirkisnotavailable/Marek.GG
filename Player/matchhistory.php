@@ -39,8 +39,7 @@
         }
         return $team_data;
     }
-
-    function getMatchhistoryFromAPI($puuid, $last_updated = null, $match_limit = 10){
+        function getMatchhistoryFromAPI($puuid, $last_updated = null, $match_limit = 10){
         $main_url = "https://europe.api.riotgames.com" ;
         $api_key = "RGAPI-88d91615-a9eb-4813-873a-47e50df212cc";
         $ch = curl_init();
@@ -105,6 +104,11 @@
             'runes' => fetchPlayerRunes($player_stats),
             'blueTeam' => extractTeamData($match_data->info->participants, 0, 5),
             'redTeam' => extractTeamData($match_data->info->participants, 5, 10),
+            'matchid' => $match_data->metadata->matchId,
+            'gamestartime' => $match_data->info->gameStartTimestamp,
+            
+
+
         ];
     }
 
