@@ -27,9 +27,14 @@
 
 
 BUGY:
-OBCAS MI TO HODI ERRORPAGE - DACO V INDEX.PHP
-FETCHNEM MATCH_ID ZAPISEM DO DATABAZY
-FETCHNEM GAMEENDTIME
-- [X] FIXNUT NAK MAREK NEMOZE SPAMOVAT SUBMIT [done]
+OBCAS MI TO HODI ERRORPAGE - DACO V INDEX.PHP - Netusim co to je za kokotinu
+ChampionStats nefunguju na typka co som predtym nehladal - viem ako fixnut asi
+
+
+Doplnky:
+Urobit ze winrate svieti podla toho ci je dobry alebo nie
+Urobit v championstats ze kolko vyhier z kolko zapasov
+
+
 
 

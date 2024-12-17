@@ -29,7 +29,6 @@ function insertdata($player_nick, $level, $icon){
 function insertmatchdata($player_nick, $data)
 {
     global $conn;
-
     foreach ($data as $match) {
 
         $player_stats = $match['playerStats'];
@@ -39,6 +38,9 @@ function insertmatchdata($player_nick, $data)
         $runes = $match['runes'];
         $blue_team = $match['blueTeam'];
         $red_team = $match['redTeam'];
+        $matchid = $match['matchid'];
+        $gamestart = $match['gamestart'];
+
         $stmt = $conn->prepare("
             INSERT INTO player_matches 
             (match_id, player_id, champion, 
@@ -47,11 +49,12 @@ function insertmatchdata($player_nick, $data)
             assists, CS, item1, 
             item2, item3, item4, 
             item5, item6, item7,
-            result, match_time, date_added)
+            result, match_time, gamestart)
             VALUES 
-            (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())");
+            (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             $stmt->execute([
+                $matchid,
                 $player_nick,
                 $player_stats['champion'],                   // champion
                 $summoner_spells[0],                         // summoner1
@@ -71,6 +74,7 @@ function insertmatchdata($player_nick, $data)
                 $items[6],
                 $player_stats['result'],
                 $match_time,
+                $gamestart,
             ]);
     }
 }
@@ -89,29 +93,25 @@ function getMatchhistory($player_nick, $puuid, $summonerlevel, $profileIconId){
 
         if ($player){
 
-            $stmt = $conn->prepare("SELECT date_added FROM player_matches where player_id = ? order by date_added desc limit 1");
+            $stmt = $conn->prepare("SELECT created_at FROM player_matches where player_id = ? order by created_at desc limit 1");
             $stmt->execute([$player_nick]);
-            $date_added = $stmt->fetch(PDO::FETCH_ASSOC);
+            $gamestart = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($date_added['date_added'] === null) {
-                $last_updated = new DateTime('1970-01-01');
+            if($gamestart){
+                $last_updated = (new DateTime($gamestart['created_at']))->getTimestamp();
             } else {
-                $last_updated = new DateTime($date_added['date_added']);
+                $last_updated = (new DateTime('1970-01-01'))->getTimestamp();
             }
-            // echo ($current_time->getTimestamp() - $last_updated->getTimestamp());
-
-            $current_time = $current_time->getTimestamp();
-            echo $current_time - $last_updated->getTimestamp();
-            if ($current_time - $last_updated->getTimestamp() > 0) { // 1/2 hour 
+                $current_time = $current_time->getTimestamp();
+            #echo $current_time - $last_updated->getTimestamp();
+            if ($current_time - $last_updated > 3600) { // 1/2 hour 
                 //FETCH Z API DO DB
                 $api_data = getMatchhistoryFromAPI($puuid, $last_updated);
                 insertmatchdata($player_nick, $api_data);
                 $db_data = fetchMatchesFromDB($player_nick);
-                echo "Z API";
                 return $db_data;
             } else {
                 // FETCH Z DB
-                echo "Z DB";
                 return fetchMatchesFromDB($player_nick);
             }
         } else {
@@ -130,10 +130,28 @@ function getMatchhistory($player_nick, $puuid, $summonerlevel, $profileIconId){
 //
 function fetchMatchesfromDB($nickname){
 global $conn;
-$stmt = $conn->prepare("SELECT * FROM player_matches WHERE player_id = ? order by date_added desc");
+$stmt = $conn->prepare("SELECT * FROM player_matches WHERE player_id = ? order by gamestart desc");
 $stmt->execute([$nickname]);
 $databasedata = $stmt->fetchAll(PDO::FETCH_ASSOC);
 return $databasedata;
+}
+
+function getchampionWinrate($nickname){
+    global $conn;
+    $stmt = $conn->prepare("SELECT champion, COUNT(*) AS game_count FROM (SELECT champion FROM player_matches WHERE player_id = ? AND result = 'win' ORDER BY gamestart DESC LIMIT 20) AS recent_matches GROUP BY champion ORDER BY game_count DESC;");
+    $stmt->execute([$nickname]);
+    $hrychampov = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $hrychampov;
+}
+
+function getchampiongames($nickname){
+    global $conn;
+    $stmt = $conn->prepare("SELECT champion, COUNT(*) AS game_count FROM (SELECT champion FROM player_matches WHERE player_id = ? ORDER BY gamestart DESC LIMIT 20) AS recent_matches GROUP BY champion ORDER BY game_count DESC;");
+    $stmt->execute([$nickname]);
+    $vyhrychampov = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $vyhrychampov;
 }
 
 

@@ -6,12 +6,11 @@
     <title>Rise.gg - Search Player</title>
     <link rel="stylesheet" href="Player/CSS/searchpage.css"> 
 </head>
+
 <body>
-<div class="navbar">
-        <a href="http://localhost/Testik/index.php">Main Page</a>
-        <a href="http://localhost/Testik/provods.php">PRO Vods</a>
-        <a href="http://localhost/Testik/Login.php">Login</a>
-    </div>
+    <?php
+    require_once 'designfunctions.php';
+   renderNavbar(); ?>
     <div class="container">
         <div class="right-section">
             <h1>Search for a Player!</h1>

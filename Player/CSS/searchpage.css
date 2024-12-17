@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
 body {
     font-family: 'Arial', sans-serif;
     /* background-color: #121212; */
@@ -6,7 +7,7 @@ body {
     color: #e0e0e0; 
     margin: 0;
     padding: 0;
-}
+  }
 
 .container {
     display: flex;
@@ -67,18 +68,6 @@ select {
     background-color: #0056b3; 
 }
 
-
-.navbar {
-    width: 100%;
-    background: #31313C;
-    color: white;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 8px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    font-family: "Roboto", sans-serif;
-  }
   #choose_region {
     width: 85%;
     padding: 20px;
@@ -89,19 +78,41 @@ select {
     color: #ffffff;
     margin-top: 20px;
   }
-  
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+  nav {
+    position: relative;
+    background: linear-gradient(90deg, #1a1a1a, #333);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
-  .navbar a:hover {
-    transform: scale(1.1);
+  nav a {
+    position: relative;
+    display: inline-block;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 15px;
+    transition: color 0.3s ease;
+  }
+  
+  nav .logo {
+    margin-right: auto;
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+  
+  nav .right-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  nav a:hover {
+    color: #40c9ff;
   }
   .original-button {
     align-items: center;
