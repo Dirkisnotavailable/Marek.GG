@@ -75,29 +75,34 @@ foreach ($championgames as $game) {
           $wins = $win['game_count'];
           break;
       }
-    }
+  }
   $winrate = ($totalGames > 0) ? ($wins / $totalGames) * 100 : 0;
 
   $championWinrates[] = [
       'champion' => $championName,
       'winrate' => $winrate,
-      'games' => $totalGames
+      'games' => $totalGames,
+      'wins' => $wins
   ];
 }
+usort($championWinrates, function($a, $b) {
+  return $b['games'] - $a['games'];
+});
 
 $champcounter = 1;
 foreach ($championWinrates as $champion) {
-if ($champion['games'] > 0 & $champcounter <= 8){
-{
-  echo '
-  <div class="champion-stats">
-    <img class="winrate-icon" src="Datadragon/img/champion/' . $champion['champion'] . '.png" alt="">
-    <p class="winrate-text">' .number_format($champion['winrate'], 2) . '%</p>
-  </div>
-  ';
-  $champcounter++;
-}
-}
+    if ($champion['games'] > 0 && $champcounter <= 8) {
+        echo '
+        <div class="champion-stats">
+            <img class="winrate-icon" src="Datadragon/img/champion/' . $champion['champion'] . '.png" alt="">
+            <div class= "champion-texts">
+            <p class="winrate-text">' . number_format($champion['winrate'], 2) . '%</p>
+            <p class="games-text">' . $champion['wins'] . ' / ' . $champion['games'] . ' games</p>
+            </div>
+        </div>
+        ';
+        $champcounter++;
+    }
 }
 
 

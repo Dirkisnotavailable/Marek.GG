@@ -138,7 +138,7 @@ return $databasedata;
 
 function getchampionWinrate($nickname){
     global $conn;
-    $stmt = $conn->prepare("SELECT champion, COUNT(*) AS game_count FROM (SELECT champion FROM player_matches WHERE player_id = ? AND result = 'win' ORDER BY gamestart DESC LIMIT 20) AS recent_matches GROUP BY champion ORDER BY game_count DESC;");
+    $stmt = $conn->prepare("SELECT champion, COUNT(*) AS game_count FROM (SELECT champion FROM (SELECT champion, result  FROM player_matches WHERE player_id = ? ORDER BY gamestart DESC LIMIT 20) AS poddotaz WHERE result = 'win') AS recent_matches GROUP BY champion ORDER BY game_count DESC;");
     $stmt->execute([$nickname]);
     $hrychampov = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

@@ -215,9 +215,7 @@ ITEMY
   text-align: center;
   color: white;
   background: linear-gradient(#212121, #212121) padding-box,
-              linear-gradient(140deg, transparent 35%,#e81cff, #40c9ff) border-box;
-  background: linear-gradient(#212121, #212121) padding-box,
-              linear-gradient(360deg, transparent 35%,#e81cff, #40c9ff, #e81cff, #40c9ff) border-box;
+              linear-gradient(to top, #e81cff, #40c9ff) border-box;
   border: 2px solid transparent;
   border-radius: 8px;
 
@@ -279,18 +277,23 @@ ITEMY
   margin-top: 15px;
   width: 100%;
   max-width: 900px;
-  flex-direction: column;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2em;
+  flex-direction: column;
+  gap: 1.5em;
 }
 .match {
   padding: 1em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #31313C; 
+  background-color: #2c2c34;
   border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.match:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .content-wrapper {
@@ -315,11 +318,11 @@ ITEMY
   width: 70px;
   height: 70px;
   background-color: #777;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .summoner-spells {
-  width: 30px;
-  height: 30px;
   display: flex;
   gap: 5px;
 }
@@ -327,23 +330,21 @@ ITEMY
 .spell {
   width: 32.5px;
   height: 32.5px;
-  background-color: #999;
+  background-color: #555;
   border-radius: 5px;
+  object-fit: cover;
 }
 
 .runes {
   display: flex;
   gap: 5px;
-  width: 32.5px;
-  height: 32.5px;
-  padding-top: 5px;
 }
 
 .rune-main.win, .rune-secondary.win {
   width: 32.5px;
   height: 32.5px;
-  background-color: #2B3E67;
   border-radius: 50%;
+  object-fit: cover;
 }
 .rune-main.loss, .rune-secondary.loss{
   width: 32.5px;
@@ -365,10 +366,12 @@ ITEMY
 
 
 .match-item {
-  width: 32.5px; 
+  width: 32.5px;
   height: 32.5px;
-  background-color: gray;
-  border: 2px solid #666;
+  background-color: #666;
+  border: 2px solid #777;
+  border-radius: 5px;
+  object-fit: cover;
 }
 
 .items {
@@ -396,7 +399,6 @@ ITEMY
 /* V PRAVO */
 .right-section {
   align-items: flex-end;
-  border: 5px red solid;
 }
 
 .match-time{
@@ -427,7 +429,7 @@ ITEMY
 
 .champion-stats {
   display: flex;
-  align-items: center; 
+  align-items: center;
   margin: 10px; 
   width: 150px; 
   height: 50px;
@@ -442,5 +444,21 @@ ITEMY
   width: 100%; 
 }
 
+.games-text {
+  font-size: 12px;
+  color: #7B7A8E;
+  margin: 0;
 
+}
+
+.champion-texts {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 5px;
+  width: 100%; 
+  text-align: center; 
+
+}
 
