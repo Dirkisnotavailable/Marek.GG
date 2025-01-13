@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: url('bg.svg') no-repeat center center fixed;
+    background: url('/Testik/CSS/bg.svg') no-repeat center center fixed;
     background-size: cover;
     color: #e0e0e0; 
     margin: 0;
@@ -20,6 +20,9 @@ body {
     background-color: #1e1e1e;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
 }
 
 .streamers-list h2 {
@@ -30,16 +33,15 @@ body {
 .streamers-list ul {
     list-style-type: none;
     padding: 0;
+    flex-grow: 1; /* Allow the list to grow and take up available space */
+    overflow-y: auto; /* Add vertical scroll if content overflows */
 }
 
 .streamers-list li {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
 
 .streamers-list a {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
     color: #ffffff;
     background-color: #333;
     text-decoration: none;
@@ -48,6 +50,66 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.streamerbunk {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 15px;
+    color: #ffffff;
+    background-color: #333;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    cursor: pointer; 
+}
+
+.streamerbunk img {
+    width: 50px; 
+    height: 50px; 
+    margin-right: 15px;
+    border-radius: 50%;
+}
+
+.streamer-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.streamer-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.streamer-name {
+    font-size: 18px; 
+}
+
+.viewer-count {
+    font-size: 16px;
+    color: #e0e0e0;
+}
+
+.stream-title {
+    margin-top: 5px; 
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.stream-title p {
+    margin: 5px 0;
+}
+
+.streamerbunk:hover {
+    background-color: #40c9ff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .streamers-list a img {
@@ -142,8 +204,8 @@ nav a:hover {
     color: #ffffff; 
     margin-bottom: 20px;
     margin-top: 10px;
-    font-size: 30px; /* Adjusted font size for better readability */
-    text-align: center; /* Centered the title */
+    font-size: 30px; 
+    text-align: center; 
 }
 
 
@@ -208,3 +270,42 @@ nav a:hover {
     opacity: 0.8; 
     transform: translateY(-2px); 
 }
+
+.stream-info {
+    margin-top: 5px; 
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.stream-info p {
+    margin: 5px 0;
+}
+
+.role-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.role-buttons button {
+    background-color: #333;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px; 
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.role-buttons button.selected {
+    background-color: #40c9ff;
+    color: #000;
+    font-weight: bold;
+}
+
+.role-buttons button:hover {
+    background-color: #40c9ff;
+    transform: translateY(-2px);
+}
+

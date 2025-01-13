@@ -41,20 +41,23 @@ JAK UROBIT PROVODS:
 2.-- UROBIT DATABAZU STREAMEROV -- HOTOVO
 3.-- PRI ZOBRAZOVANI SA BUDE FETCHOVAT NICK STREAMERA
 4.-- TENTO FETCHNUTY NICK POJDE DO TWITCH API, ABY ZISKAL IKONKU A ZE CI JE LIVE
-5. AK JE LIVE, TAK SA ZOBRAZI STREAM NA STRANE
-6. AK NIE JE LIVE, TAK SA ZOBRAZI LEN IKONKA A NICK
-7. AK CHCEM PRIDAT NEJAKEHO STREAMERA, TAK TO BUDE MOCT IBA ADMIN
-8. ADMIN PRIDA STREAMERA TAK, ZE NAPISE JEHO PRESNY TWITCH USERNAME
-9. NASLEDNE SA TWITCH USERNAME ZAPISE DO DATABAZY
-10. JEJ BUDE SETKO FUNGOVAT!!
+5.-- AK JE LIVE, TAK SA ZOBRAZI STREAM NA STRANE
+6.-- AK NIE JE LIVE, TAK SA ZOBRAZI LEN IKONKA A NICK
+7.-- AK CHCEM PRIDAT NEJAKEHO STREAMERA, TAK TO BUDE MOCT IBA ADMIN
+8.-- ADMIN PRIDA STREAMERA TAK, ZE NAPISE JEHO PRESNY TWITCH USERNAME
+9.-- NASLEDNE SA TWITCH USERNAME ZAPISE DO DATABAZY
+10.-- JEJ BUDE SETKO FUNGOVAT!!
 
 -- ROZPIS FETCHU TWITCHA:
 PRI PRIDAVANI SA FETCHNE IBA ID, NICK A ICONKA.
 PRI ZOBRAZOVANI SA FETCHNE CI JE LIVE, VIEWERCOUNT A TITLE
 
 --POTREBUJEM:
-Urobit ze sa dakde bude pridavat streamer, tento streamer sa zapise do databazy ak je admin ten co ho pridava
-Urobit ze sa fetchne z databazy id streamerov, vsetci sa prefetchuju, ak su online tak sa daju na hor.
+--Urobit ze sa dakde bude pridavat streamer, tento streamer sa zapise do databazy ak je admin ten co ho pridava [ĐONE]
+--Urobit ze sa fetchne z databazy id streamerov, vsetci sa prefetchuju, ak su online tak sa daju na hor.[DONE]
+Urobit SignUp a LOGIN
+Urobit control panel pre admina, kde bude zoznam vsetkych streamerov a moznost ich pridat a odstranit
+--Urobit ze sa stremeri budu moct delit podla role [DONE]
 
 
 

@@ -26,17 +26,25 @@ function insertstreamer($streamername, $streamerid, $streamericon, $role){
     }
 }
 
-function fetchstreamers(){
+function fetchstreamers($role = null){
     global $conn;
-    try {
-        $stmt = $conn->prepare("SELECT * FROM streamer;");
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }catch(Exception $e){
-        echo "<p>Chyba: {$e->getMessage()}</p>";
+    if (isset($role)){
+        try {
+            $stmt = $conn->prepare("SELECT * FROM streamer WHERE role = ?;");
+            $stmt->execute([$role]);
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            echo "<p>Chyba: {$e->getMessage()}</p>";
+        }
+    } else {
+        try {
+            $stmt = $conn->prepare("SELECT * FROM streamer;");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            echo "<p>Chyba: {$e->getMessage()}</p>";
+        }
     }
-
-
 }   
 
 function removestreamer($streamername)
