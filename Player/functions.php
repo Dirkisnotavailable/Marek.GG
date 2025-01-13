@@ -134,7 +134,7 @@ $stmt = $conn->prepare("SELECT * FROM player_matches WHERE player_id = ? order b
 $stmt->execute([$nickname]);
 $databasedata = $stmt->fetchAll(PDO::FETCH_ASSOC);
 return $databasedata;
-}
+}   
 
 function getchampionWinrate($nickname){
     global $conn;

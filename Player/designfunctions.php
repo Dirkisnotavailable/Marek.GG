@@ -2,9 +2,9 @@
 function renderNavbar() {
     echo '
     <nav>
-        <a href="../index.php" class="logo">Marek.GG</a>
+        <a href="/Testik/index.php" class="logo">Marek.GG</a>
         <div class="right-links">
-            <a href="../provods.php">
+            <a href= "/Testik/Provods/provods.php">
                 <i class="fi fi-rr-globe"></i>
                 ProVods
             </a>

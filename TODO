@@ -15,15 +15,15 @@
 -----------
 30%-60%
 -- Urobit stranku kde budú streamy proplayerov ktorí práve streamuju [NEXT]
--- Urobit aby bolo vidiet champov co hral hrac a ich winrate za poslednych 10 hier [NEXT]
--- Pridat do match history hraca Blue team a red team(ich champovia)
--- Zlepšiť dizajn stranky
+-- Urobit aby bolo vidiet champov co hral hrac a ich winrate za poslednych 10 hier [DONE]
+-- Pridat do match history hraca Blue team a red team(ich champovia) [SCRATCH THAT]
+-- Zlepšiť dizajn stranky [DONE]
 -----------
 60%-100%
--- Zrýchliť loadovanie stranky(???????????)
--- ????
--- ????
--- ????
+-- UROBIT FORUM
+-- UROBIT LOGIN
+-- UROBIT SIGNUP
+
 
 
 BUGY:
@@ -34,6 +34,27 @@ ChampionStats nefunguju na typka co som predtym nehladal - viem ako fixnut asi
 Doplnky:
 Urobit ze winrate svieti podla toho ci je dobry alebo nie
 Urobit v championstats ze kolko vyhier z kolko zapasov
+
+
+JAK UROBIT PROVODS:
+1.-- ZISKAT API Z TWITCHTU -- HOTOVO
+2.-- UROBIT DATABAZU STREAMEROV -- HOTOVO
+3.-- PRI ZOBRAZOVANI SA BUDE FETCHOVAT NICK STREAMERA
+4.-- TENTO FETCHNUTY NICK POJDE DO TWITCH API, ABY ZISKAL IKONKU A ZE CI JE LIVE
+5. AK JE LIVE, TAK SA ZOBRAZI STREAM NA STRANE
+6. AK NIE JE LIVE, TAK SA ZOBRAZI LEN IKONKA A NICK
+7. AK CHCEM PRIDAT NEJAKEHO STREAMERA, TAK TO BUDE MOCT IBA ADMIN
+8. ADMIN PRIDA STREAMERA TAK, ZE NAPISE JEHO PRESNY TWITCH USERNAME
+9. NASLEDNE SA TWITCH USERNAME ZAPISE DO DATABAZY
+10. JEJ BUDE SETKO FUNGOVAT!!
+
+-- ROZPIS FETCHU TWITCHA:
+PRI PRIDAVANI SA FETCHNE IBA ID, NICK A ICONKA.
+PRI ZOBRAZOVANI SA FETCHNE CI JE LIVE, VIEWERCOUNT A TITLE
+
+--POTREBUJEM:
+Urobit ze sa dakde bude pridavat streamer, tento streamer sa zapise do databazy ak je admin ten co ho pridava
+Urobit ze sa fetchne z databazy id streamerov, vsetci sa prefetchuju, ak su online tak sa daju na hor.
 
 
 

@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: d5vru-tnswd
+created: 2025-01-12T20:40:36+01:00
