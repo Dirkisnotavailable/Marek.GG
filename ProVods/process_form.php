@@ -5,6 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once 'getstreamer.php';
     $idandicon = getstreamerid($streamerName);
     if (empty($idandicon['data'])) {
+        http_response_code(404);
         echo "Streamer not found!";
         exit;
     } else {
@@ -15,18 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     require_once 'streamerdatabase.php';
     insertstreamer($streamernick, $streamerid, $streamericon, $role);
-
-    /* Display the results
-    echo "<pre>";
-    print_r($idandicon);
-    echo "</pre>";
-    echo "<pre>";
-    print_r($streamdata);
-    echo "</pre>";
-    echo "<pre>";
-    print_r(fetchstreamers());
-    echo "</pre>";
-    echo "Role: " . htmlspecialchars($role);
-*/
-    }
+    echo '<li><a href="#" onclick="showStream(\'' . $streamernick . '\')"><img src="' . $streamericon . '"> ' . $streamernick . '</a></li>';
+}
 ?>

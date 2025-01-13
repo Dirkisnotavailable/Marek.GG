@@ -39,6 +39,18 @@ function fetchstreamers(){
 
 }   
 
+function removestreamer($streamername)
+{
+    global $conn;
+    try {
+        $stmt = $conn->prepare("DELETE FROM streamer WHERE streamername = ?;");
+        $stmt->execute([$streamername]);
+    }catch(Exception $e){
+        echo "<p>Chyba: {$e->getMessage()}</p>";
+    }
+
+}
+
 
 
 
