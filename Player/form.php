@@ -9,7 +9,7 @@
 
 <body>
     <?php
-    require_once 'designfunctions.php';
+    require_once 'CSS/designfunctions.php';
     renderNavbar(); ?>
     <div class="container">
     <img src="Player/CSS/logolol2.png" class="image">

@@ -9,7 +9,7 @@ function renderNavbar() {
                 <i class="fi fi-rr-globe"></i>
                 ProVods
             </a>
-            <a href="">Signup</a>
+            <a href="/Testik/Registration/registerform.php">Signup</a>
             <a href="">Login</a>
         </div>
         <span></span>
@@ -189,9 +189,9 @@ function renderMatchHistoryfromAPI($alldata) {
       </div>
     </div>
     <div class="middle-section">
-    <div class="kda">'. $kills . '/' . $deaths . '/'. $assists . '</div>
-      <div class="kda-calculation">' . $kdanum . ' KDA </div>
-      <div class="cs-kp">CS/M: ' . $cs . '</div>
+    <div class="kda">'. $kills . ' / ' . $deaths .' / ' . $assists . '</div>
+      <div class="kda-calculation">' . $kdanum . ' (KDA)</div>
+      <div class="cs-kp">CS: ' . $cs . '</div>
       <div class="items">
        <img class = "match-item" src="Datadragon/img/item/'.$items[0].'.png" alt="">
        <img class = "match-item" src="Datadragon/img/item/'.$items[1].'.png" alt="">

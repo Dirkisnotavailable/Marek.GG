@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif; /* Updated font-family */
+    font-family: 'Outfit'; /* Updated font-family */
     background: url('../CSS/bg.svg') no-repeat center center fixed;
     background-size: cover;
     color: #e0e0e0; 
@@ -7,97 +7,132 @@ body {
     padding: 0;
 }
 
-#formhead {
-    text-align: center;
-    font-size: 32px; /* Increased font size */
-    margin-bottom: 20px;
-    color: #ffffff;
-    height: 30%; /* Adjusted height to take 30% of the form height */
-    display: flex;
-    align-items: center;
-    justify-content: left;
-}
 #form-container {
     display: flex;
-    align-items: center;
+    align-items: center; /* Center items vertically */
     justify-content: center;
     background-color: #1e1e1e; /* Form background color */
     border-radius: 10px;
     padding: 20px;
     width: 1000px;
-    margin: 50px auto;;
+    margin: 50px auto;
+    position: relative; /* Add relative positioning */
+    margin-bottom: 60px;
 }
 
 #form-image {
-    height: 520px; /* Stretch image height to fit the form */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
+    height: 520px;
+    object-fit: cover; 
     max-width: 450px;
     margin-right: 50px;
     border-radius: 10px;
 }
 
+#formhead {
+    position: absolute; /* Position the header absolutely */
+    top: 9%; /* Position it at 70% height */
+    right: 110px; /* Position it on the right side */
+    font-size: 40px; 
+    color: #ffffff;
+    background-color: rgba(30, 30, 30, 0.8); /* Add background for better visibility */
+    padding: 10px;
+    border-radius: 5px;
+}
+
 #registrationform {
     flex: 1;
     max-width: 500px;
+    margin-top: 120px;
 }
 
 .form-row {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    margin-bottom: 15px;
 }
 
 .form-group {
-    margin-bottom: 20px;
     flex: 1;
+    margin-right: 10px;
 }
 
 .form-group:last-child {
     margin-right: 0;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #e0e0e0; 
+.form-group-names input{
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #555; /* Updated border color */
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    height: 29px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select {
-    width: calc(100% - 50px); /* Adjusted width to ensure consistent right margin */
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #444; 
-    background-color: #333; 
-    color: #ffffff;
-    border-radius: 4px;
-    height: 25px;
+#lastname {
+    margin-left: 20px   ;
 }
+
+#email, #password, #password2 {
+    width: 445px;
+    padding: 10px;
+    border: 1px solid #555; /* Updated border color */
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    height: 29px;
+}
+input:-webkit-autofill {
+    color: white !important;
+    -webkit-box-shadow: 0 0 0px 1000px #2e2e2e inset !important;
+}
+
 #country {
-    width: calc(100% - 50px); /* Adjusted width to ensure consistent right margin */
+    width: 465px;
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #444; 
-    background-color: #333; 
-    color: #ffffff;
-    border-radius: 4px;
-    height: 50px;   
+    border: 1px solid #555; /* Updated border color */
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    height: 50px;
+    color: white;
 }
 
-button {
-    width: calc(100% - 20px); /* Adjusted width to ensure consistent right margin */
-    padding: 10px;
-    background-color: #007BFF;
-    color: #ffffff;
+.form-row input::placeholder {
+    color: white;
+}
+
+#submit-button {
+    width: 465px;
+    padding: 15px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 5px;
+    background-color: #6a0dad; /* Updated shade of purple */
+    color: white;
     font-size: 16px;
+    cursor: pointer;
+    margin-top: 30px;
 }
 
-button:hover {
-    background-color: #0056b3;
+#submit-button:hover {
+    background-color: #5a0c9d; /* Darker shade for hover effect */
 }
+
+#TOS {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #6a0dad; /* Updated shade of purple */
+}
+
+.TOS-text{
+    margin-top: 20px;
+    font-size: 16px;
+    color: white;
+    margin-top: 2px;
+    margin-left: 15px;
+}
+.form-row-TOS {
+    display: flex;
+}
+
+
+

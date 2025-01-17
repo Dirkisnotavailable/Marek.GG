@@ -28,7 +28,7 @@ if ($losses_solo != 0)
   $winrate_solo = round($winrate_solo);
 }
 
-include('designfunctions.php');
+include('../CSS/designfunctions.php');
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +64,11 @@ $championwin = getchampionWinrate($nickname);
 $championgames = getChampiongames($nickname); 
 
 $championWinrates = [];
+
+if (empty($championwin) || empty($championgames)) {
+  echo '<p class="error">Restart the page or search yourself once again to get a rundown about your most played champions and winrates with them.</p>';
+} else {
+
 
 foreach ($championgames as $game) {
   $championName = $game['champion'];
@@ -105,7 +110,7 @@ foreach ($championWinrates as $champion) {
     }
 }
 
-
+}
 
 ?>
 </div>
@@ -183,7 +188,7 @@ foreach ($championWinrates as $champion) {
   var_dump($alldata);
   echo "</pre>"; */
   
-  if ($alldata[0]['player_id'])
+  if (!empty($alldata) && isset($alldata[0]['player_id']))
   { //AK JE Z DATABAZE FETCHNUTE
     renderMatchHistoryfromDTB($alldata);
   } else {

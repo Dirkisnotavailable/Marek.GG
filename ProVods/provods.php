@@ -13,7 +13,7 @@
 </head>
 <body>
     <?php
-    require_once '../Player/designfunctions.php';
+    require_once '../CSS/designfunctions.php';
     renderNavbar();
     require_once 'streamerdatabase.php';
     require_once 'getstreamer.php';
@@ -27,7 +27,6 @@
                 <button onclick="filterStreamers('Jungle', this)">JGL</button>
                 <button onclick="filterStreamers('Top', this)">TOP</button>
             </div>
-            <h2>Streamers</h2>
             <ul id="streamerList">
                 <?php
                 $streamers = fetchstreamers();

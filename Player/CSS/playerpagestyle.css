@@ -145,7 +145,11 @@ h2 {
 h3 {
   font-size: 55px;
   margin-top: 0px;
-  margin-left: 200px;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 h4 {

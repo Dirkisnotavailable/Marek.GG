@@ -5,36 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marek.GG - Registration</title>
     <link rel="stylesheet" href="registerform.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"> <!-- Added Google Fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <?php 
-    require_once '../Player/designfunctions.php';
+    require_once '../CSS/designfunctions.php';
     renderNavbar(); ?>
 
 <div id="form-container">
-    <img id="form-image" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2p3bjc1MW96enpra3Z1NGxvdmhicDdpMzljOXo5eTR1eWo3bG82ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0jvcvqLFDmb2TFgGWA/giphy.gif" alt="Form Image"> <!-- Add your image path here -->
+    <header id="formhead">Create an account!</header> <!-- Moved header outside the form -->
+    <img id="form-image" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2p3bjc1MW96enpra3Z1NGxvdmhicDdpMzljOXo5eTR1eWo3bG82ciZlcD12MV9pbnRlcmFsX2dpZl9ieV9pZCZjdD1nZw/0jvcvqLFDmb2TFgGWA/giphy.gif" alt="Form Image"> <!-- Add your image path here -->
     <form id="registrationform" action="" method="post">
-        <header id = "formhead">Create an account!</header>
         <div class="form-row">
-            <div class="form-group">
-                <input id="firstname" type="text" name="firstname" required placeholder="First Name">
-            </div>
-            <div class="form-group">
-                <input id="lastname" type="text" name="lastname" required placeholder="Last Name">
+            <div class="form-group-names">
+                <input id="firstname" type="text" name="firstname" required placeholder="First name">
+                <input id="lastname" type="text" name="lastname" required placeholder="Last name">
             </div>
         </div>
-        <div class="form-group">
-            <input id="email" type="email" name="email" required placeholder="Email">
+        <div class="form-row">
+                <input id="email" type="email" name="email" required placeholder="Email">
         </div>
-        <div class="form-group">
-            <input id="nickname" type="text" name="nickname" required placeholder="Nickname">
+        <div class="form-row">
+                <input id="password" type="password" name="password" required placeholder="Password">
         </div>
-        <div class="form-group">
-            <input id="password" type="password" name="password" required placeholder="Password">
-        </div>
-        <div class="form-group">
-            <select id="country" name="country" required>
+        <div class="form-row">
+        <select id="country" name="country" required>
                 <option value="">Select your country</option>
                 <option value="AF">Afghanistan</option>
                 <option value="AL">Albania</option>
@@ -280,11 +277,19 @@
                 <option value="ZW">Zimbabwe</option>
             </select>
         </div>
-        <div class="form-group">
-            <button type="submit">Register</button>
+        <div class="form-row-TOS">
+            <input id="TOS" type="checkbox" name="TOS" required>
+            <p class = "TOS-text">I agree to the <a href="/Testik/Other/TermsAndConditions.php">Terms of Service</a></p>
+        </div>
+        <div class="form-row">
+            <button id="submit-button" type="submit">Register</button>
         </div>
     </form>
 </div>
 
 </body>
+<footer>
+    <?php
+    renderFooter();
+    ?>
 </html>
