@@ -1,6 +1,7 @@
 <?php
 function renderNavbar() {
     echo '
+        <link rel="stylesheet" href="/Testik/CSS/navbar.css">
     <nav>
         <a href="/Testik/index.php" class="logo">Marek.GG</a>
         <div class="right-links">
@@ -15,6 +16,57 @@ function renderNavbar() {
     </nav>
     ';
 }
+
+function renderFooter() {
+    echo '
+        <link rel="stylesheet" href="/Testik/CSS/footer.css">
+    <footer>
+        <div class="footer-content">
+            <div class="footer-center about">
+                <h2 class="logo-text">Marek.GG</h2>
+                <p>
+                    Marek.GG is a platform dedicated to providing the best gaming content and community for gamers around the world.
+                </p>
+                <div class="contact">
+                    <span><i class="fas fa-phone"></i> &nbsp; +421907182598</span>
+                    <span><i class="fas fa-envelope"></i> &nbsp; info@marek.gg</span>
+                </div>
+                <div class="socials">
+                    <a href="https://facebook.com" target="_blank"><img src="/Testik/Player/CSS/icons/facebook.png" class="socialimg"></a>
+                    <a href="https://x.com" target="_blank"><img src="/Testik/Player/CSS/icons/twitter.svg" class="socialimg"></a>
+                    <a href="https://instagram.com" target="_blank"><img src="/Testik/Player/CSS/icons/instagram.png" class="socialimg"></a>
+                </div>
+            </div>
+            <div class="footer-center-links">
+                <h2 class="link-label">Quick Links</h2>
+                <ul class="quick-links">
+                    <a href="/Testik/Events"><li>Events</li></a>
+                    <a href="/Testik/Team"><li>Team</li></a>
+                    <a href="/Testik/Mentors"><li>Mentors</li></a>
+                    <a href="/Testik/Gallery"><li>Gallery</li></a>
+                    <a href="/Testik/Other/TermsandConditions.php"><li>Terms and Conditions</li></a>
+                </ul>
+            </div>
+            <div class="footer-center contact-form">
+                <h2>Contact us</h2>
+                <br>
+                <form action="index.html" method="post">
+                    <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+                    <textarea name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+                    <button type="submit" class="btn btn-big">
+                        <i class="fas fa-envelope"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; marek.gg | Designed by Denis Hronec
+        </div>
+    </footer>
+    ';
+}
+
 function renderMatchHistoryfromDTB($alldata) {
     foreach($alldata as $data)
     {
@@ -157,6 +209,4 @@ function renderMatchHistoryfromAPI($alldata) {
     ';    
   }
 }
-
-
 ?>

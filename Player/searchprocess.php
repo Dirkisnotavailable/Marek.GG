@@ -40,7 +40,7 @@ function getPuuid($searchname, $regions, $regionIndex)
 
     if ($httpCode != 200)   // VELMI DOLEZITE AK JE RESPONSE CODE 200 -> UKAZE NICK HRACA INAK ZLE
     {
-        header('Location: errorpage.php');
+        header('Location: /Testik/Other/errorpage.php');
         exit;
     } else
     {   
@@ -66,7 +66,7 @@ function searchPlayer()
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     if ($httpCode != 200)
     {
-        header('Location: errorpage.php');
+        header('Location: /Testik/Other/errorpage.php');
         exit;
     }
 

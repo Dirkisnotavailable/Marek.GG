@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProVods</title>
+    <title>Marek.gg - ProVods</title>
     <link rel="stylesheet" href="/Testik/Provods/provods.css">
     <style>
         #streamerForm {
@@ -156,4 +156,9 @@
         });
     </script>
 </body>
+<footer>
+    <?php
+    renderFooter();
+    ?>
+</footer>
 </html>

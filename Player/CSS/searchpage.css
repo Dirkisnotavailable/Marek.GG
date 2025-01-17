@@ -92,42 +92,6 @@ input[type="submit"]:hover {
     color: #ffffff;
 }
 
-nav {
-    position: relative;
-    background: linear-gradient(90deg, #1a1a1a, #333);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    padding: 0 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-nav a {
-    position: relative;
-    display: inline-block;
-    font-size: 1em;
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    text-decoration: none;
-    padding: 0 15px;
-    transition: color 0.3s ease;
-}
-
-nav .logo {
-    margin-right: auto;
-    font-weight: 700;
-    font-size: 1.5em;
-}
-
-nav .right-links {
-    display: flex;
-    gap: 15px;
-}
-
-nav a:hover {
-    color: #40c9ff;
-}
 
 .frontimage {
   width: auto;
@@ -159,33 +123,3 @@ nav a:hover {
 
 }
 
-/*
-.frontimage {
-  width: auto;
-  height: 250px;
-  margin-bottom: 0px; 
-  margin-left: 450px;
- /* width: auto;
-  height: 350px;
-  margin-bottom: 0px; 
-  margin-left: 440px;
-}
-
-.image {
-  position: absolute;
-  z-index: -1;
-  width: 150px;
-  height: auto;
-  padding-top: 110px;
-  padding-right: 620px;
-}
-
-.fronttitle{
-  position: absolute;
-  z-index: -1;
-  width: 700px;
-  height: auto;
-  padding-bottom: 300px;
-
-}
-*/

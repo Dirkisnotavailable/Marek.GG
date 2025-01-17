@@ -10,16 +10,17 @@ body {
 }
 
 .container {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100%;
-    text-align: center;
-    padding: 0 20px; /* Add padding to the container */
-    box-sizing: border-box; /* Include padding in the element's total width and height */
-}
+    text-align: left;
+    padding: 0 20px; 
+    box-sizing: border-box;
+    margin-top: 200px;
+  }
 
 h1 {
     color: #ffffff; 
@@ -28,9 +29,9 @@ h1 {
     font-size: 60px;
 }
 
-.error-message {
+.TOSp {
     color: #cccccc;
-    font-size: 18px;
+    font-size: 12px;
     margin-bottom: 20px;
     max-width: 600px; /* Set a maximum width for the text */
     line-height: 1.5; /* Improve readability */

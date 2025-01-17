@@ -6,19 +6,22 @@
     <title>Rise.gg - Search Player</title>
     <link rel="stylesheet" href="Player/CSS/searchpage.css"> 
 </head>
-
 <body>
-    <?php
-    require_once 'designfunctions.php';
-    renderNavbar(); ?>
+<div class="navbar">
+        <a href="http://localhost/Testik/index.php">Main Page</a>
+        <a href="http://localhost/Testik/provods.php">PRO Vods</a>
+        <a href="http://localhost/Testik/Login.php">Login</a>
+    </div>
     <div class="container">
-    <img src="Player/CSS/logolol2.png" class="image">
-        <img src="Player/CSS/frontimage.png" class="frontimage">
-        <div class="searchmenu">
+        <div class="right-section">
+            <h1>Search for a Player!</h1>
             <form id="formular" action="" method="post">
-                <div class="form-group-inline">
+                <div class="form-group">
                     <label for="name"></label>
                     <input id="name" type="text" name="playername" required placeholder="Username" pattern=".*#.*">
+                </div>
+                
+                <div class="form-group">
                     <label for="choose_region"></label>
                     <select name="region" id="choose_region" required aria-placeholder="Region">
                         <option value="0">EUNE</option>
@@ -27,12 +30,19 @@
                         <option value="3">NA</option>
                         <option value="4">KR</option>
                     </select>
-                    <input type="submit" value="Search!" class="original-button">
                 </div>
+
+                <input type="submit" value="Search!" class="original-button">
             </form>
         </div>
-        <img src="Player/CSS/fronttitle.png" class="fronttitle">
     </div>
-    <?php renderFooter(); ?>
 </body>
 </html>
+
+
+
+<?php
+
+?>
+
+
