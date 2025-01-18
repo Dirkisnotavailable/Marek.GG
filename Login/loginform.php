@@ -3,46 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rise.gg - Search Player</title>
-    <link rel="stylesheet" href="Player/CSS/searchpage.css"> 
+    <title>Marek.GG - Registration</title>
+    <link rel="stylesheet" href="loginform.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="navbar">
-        <a href="http://localhost/Testik/index.php">Main Page</a>
-        <a href="http://localhost/Testik/provods.php">PRO Vods</a>
-        <a href="http://localhost/Testik/Login.php">Login</a>
-    </div>
-    <div class="container">
-        <div class="right-section">
-            <h1>Search for a Player!</h1>
-            <form id="formular" action="" method="post">
-                <div class="form-group">
-                    <label for="name"></label>
-                    <input id="name" type="text" name="playername" required placeholder="Username" pattern=".*#.*">
-                </div>
-                
-                <div class="form-group">
-                    <label for="choose_region"></label>
-                    <select name="region" id="choose_region" required aria-placeholder="Region">
-                        <option value="0">EUNE</option>
-                        <option value="1">EUW</option>
-                        <option value="2">JP</option>
-                        <option value="3">NA</option>
-                        <option value="4">KR</option>
-                    </select>
-                </div>
+    <?php 
+    require_once '../CSS/designfunctions.php';
+    renderNavbar(); ?>
 
-                <input type="submit" value="Search!" class="original-button">
-            </form>
+<div id="form-container">
+    <img id="form-image" src="jhin.gif" alt="Form Image"> <!-- Add your image path here -->
+        <form id="registrationform" action="regprocessform.php" method="post">
+        <img id="login-image"src="account.png" alt="">
+        <header id="formhead">User Login
+        </header>
+        <div class="form-row">
+            <div class="form-group-names">
+                <input id="nickname" type="text" name="nickname" required placeholder="Nickname">            </div>
         </div>
-    </div>
+        <div class="form-row">
+                <input id="password" type="password" name="password" required placeholder="Password">
+        </div>
+            <button id="submit-button" type="submit">Register</button>
+            <p id="login">Don't have an account? <a href="/Testik/Registration/registerform.php">Register!</a></p>
+
+        </div>
+    </form>
+</div>
+
 </body>
+<footer>
+    <?php
+    renderFooter();
+    ?>
 </html>
-
-
-
-<?php
-
-?>
-
-

@@ -26,12 +26,13 @@ body {
     max-width: 450px;
     margin-right: 50px;
     border-radius: 10px;
+    object-position: right; /* Show the right side of the image */
 }
 
 #formhead {
     position: absolute; /* Position the header absolutely */
-    top: 9%; /* Position it at 70% height */
-    right: 110px; /* Position it on the right side */
+    top: 7%; /* Position it at 70% height */
+    right: 105px; /* Position it on the right side */
     font-size: 40px; 
     color: #ffffff;
     background-color: rgba(30, 30, 30, 0.8); /* Add background for better visibility */
@@ -61,33 +62,40 @@ body {
 }
 
 .form-group-names input{
-    width: 200px;
-    padding: 10px;
-    border: 1px solid #555; /* Updated border color */
-    border-radius: 5px;
-    background-color: #2e2e2e;
-    height: 29px;
-}
-
-#lastname {
-    margin-left: 20px   ;
-}
-
-#email, #password, #password2 {
     width: 445px;
     padding: 10px;
     border: 1px solid #555; /* Updated border color */
     border-radius: 5px;
     background-color: #2e2e2e;
     height: 29px;
+    color: #ffffff
+}
+
+
+#email, #password {
+    width: 445px;
+    padding: 10px;
+    border: 1px solid #555; 
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    height: 29px;
+    color: #ffffff; 
+
 }
 input:-webkit-autofill {
-    color: white !important;
-    -webkit-box-shadow: 0 0 0px 1000px #2e2e2e inset !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 0px 1000px #2e2e2e inset !important;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+    color: #ffffff; /* Ensure text color remains white on focus */
+    border-color: #70186d; /* Optional: Change border color on focus */
 }
 
 #country {
-    width: 465px;
+    width: 466px;
     padding: 10px;
     border: 1px solid #555; /* Updated border color */
     border-radius: 5px;
@@ -129,9 +137,28 @@ input:-webkit-autofill {
     color: white;
     margin-top: 2px;
     margin-left: 15px;
+
 }
 .form-row-TOS {
     display: flex;
+}
+
+.TOS-text a {
+    text-decoration: none; /* Optional: Remove underline */
+}
+.TOS-text a:hover {
+    text-decoration: underline;
+}
+#login {
+    display: flex;
+    color: #ffffff;}
+#login a {
+    margin-left: 10px; 
+    text-decoration: none;
+}
+
+#login a:hover {
+    text-decoration: underline; 
 }
 
 

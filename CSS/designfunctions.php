@@ -2,17 +2,31 @@
 function renderNavbar() {
     echo '
         <link rel="stylesheet" href="/Testik/CSS/navbar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <nav>
-        <a href="/Testik/index.php" class="logo">Marek.GG</a>
-        <div class="right-links">
-            <a href= "/Testik/Provods/provods.php">
-                <i class="fi fi-rr-globe"></i>
+        <div class="left-links">
+            <a href="/Testik/index.php" class="logo">Marek.GG</a>
+        </div>
+        <div class="center-links">
+            <a href="/Testik/index.php">
+                <i class="fas fa-search"></i> 
+                Search a Player
+            </a>
+            <a href="/Testik/Provods/provods.php">
+                <i class="fas fa-video"></i> 
                 ProVods
             </a>
-            <a href="/Testik/Registration/registerform.php">Signup</a>
-            <a href="">Login</a>
         </div>
-        <span></span>
+        <div class="right-links">
+            <a href="/Testik/Registration/registerform.php">
+                <i class="fas fa-user-plus"></i>
+                Signup
+            </a>
+            <a href="/Testik/Login/loginform.php">
+                <i class="fas fa-sign-in-alt"></i> 
+                Login
+            </a>
+        </div>
     </nav>
     ';
 }

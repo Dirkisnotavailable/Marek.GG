@@ -14,20 +14,19 @@
 }
 -----------
 30%-60%
--- Urobit stranku kde budú streamy proplayerov ktorí práve streamuju [NEXT]
+-- Urobit stranku kde budú streamy proplayerov ktorí práve streamuju [DONE]
 -- Urobit aby bolo vidiet champov co hral hrac a ich winrate za poslednych 10 hier [DONE]
 -- Pridat do match history hraca Blue team a red team(ich champovia) [SCRATCH THAT]
 -- Zlepšiť dizajn stranky [DONE]
 -----------
 60%-100%
--- UROBIT FORUM
+-- UROBIT FORUM 
 -- UROBIT LOGIN
--- UROBIT SIGNUP
+-- UROBIT SIGNUP [DONE]
 
 
 
 BUGY:
-OBCAS MI TO HODI ERRORPAGE - DACO V INDEX.PHP - Netusim co to je za kokotinu
 ChampionStats nefunguju na typka co som predtym nehladal - viem ako fixnut asi
 
 
@@ -55,9 +54,11 @@ PRI ZOBRAZOVANI SA FETCHNE CI JE LIVE, VIEWERCOUNT A TITLE
 --POTREBUJEM:
 --Urobit ze sa dakde bude pridavat streamer, tento streamer sa zapise do databazy ak je admin ten co ho pridava [ĐONE]
 --Urobit ze sa fetchne z databazy id streamerov, vsetci sa prefetchuju, ak su online tak sa daju na hor.[DONE]
-Urobit SignUp a LOGIN
+--Urobit SignUp a LOGIN
 Urobit control panel pre admina, kde bude zoznam vsetkych streamerov a moznost ich pridat a odstranit
 --Urobit ze sa stremeri budu moct delit podla role [DONE]
+DAT DO NAVBAR iconky
+
 
 
 

@@ -15,14 +15,12 @@
     renderNavbar(); ?>
 
 <div id="form-container">
-    <header id="formhead">Create an account!</header> <!-- Moved header outside the form -->
-    <img id="form-image" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2p3bjc1MW96enpra3Z1NGxvdmhicDdpMzljOXo5eTR1eWo3bG82ciZlcD12MV9pbnRlcmFsX2dpZl9ieV9pZCZjdD1nZw/0jvcvqLFDmb2TFgGWA/giphy.gif" alt="Form Image"> <!-- Add your image path here -->
-    <form id="registrationform" action="" method="post">
+    <header id="formhead">Create an account!</header>
+    <img id="form-image" src="kaisa.gif" alt="Form Image"> <!-- Add your image path here -->
+    <form id="registrationform" action="regprocessform.php" method="post">
         <div class="form-row">
             <div class="form-group-names">
-                <input id="firstname" type="text" name="firstname" required placeholder="First name">
-                <input id="lastname" type="text" name="lastname" required placeholder="Last name">
-            </div>
+                <input id="nickname" type="text" name="nickname" required placeholder="Nickname">            </div>
         </div>
         <div class="form-row">
                 <input id="email" type="email" name="email" required placeholder="Email">
@@ -284,6 +282,7 @@
         <div class="form-row">
             <button id="submit-button" type="submit">Register</button>
         </div>
+        <p id="login">Already have an account? <a href="/Testik/Login/loginform.php">Login!</a></p>
     </form>
 </div>
 

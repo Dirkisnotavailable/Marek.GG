@@ -36,7 +36,7 @@ include('../CSS/designfunctions.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rise.gg - <?php echo $nickname?>'s Stats</title>
+    <title>Marek.gg - <?php echo $nickname?>'s Stats</title>
     <link rel="stylesheet" href="CSS/playerpagestyle.css?v=20210819">
 </head>
 <body>

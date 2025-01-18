@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-    require_once 'C:/laragon/www/Testik/Player/designfunctions.php';
+    require_once('../CSS/designfunctions.php');
     renderNavbar(); ?>
     <div class="container">
         <h1>TOS</h1>
