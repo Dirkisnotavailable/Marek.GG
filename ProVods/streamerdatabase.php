@@ -1,15 +1,6 @@
 <?php
-$dbhost = "localhost";
-$dbname="riseplayerdata";
-$User="riseadmin";
-$password="";
-
-try{
-    $conn = new PDO("mysql:host={$dbhost};dbname={$dbname};charset=utf8mb4", $User, $password);
-} catch(Exception $e){
-    $error = $e->getMessage();
-    echo "<p>Chyba:$error</p>";
-}
+require_once "../Library/Database.php";
+$conn = (new Database())->getConnection();
 
 function insertstreamer($streamername, $streamerid, $streamericon, $role){
     global $conn;

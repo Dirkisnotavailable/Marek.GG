@@ -13,6 +13,7 @@
 </head>
 <body>
     <?php
+    require_once '../Library/sessionstart.php';
     require_once '../CSS/designfunctions.php';
     renderNavbar();
     require_once 'streamerdatabase.php';
@@ -48,30 +49,26 @@
                           </li>';
                 }
                 ?>
+                <button onclick="toggleForm()" class="addstreamerbutton">Add Streamer</button>
             </ul>
-            <button onclick="toggleForm()">Add Streamer</button>
+            <div id="streamerForm">
+                <form>
+                    <label for="streamerName">Streamer Name:</label>
+                    <input type="text" id="streamerName" name="streamerName" required>
+                    <label for="role">Role:</label>
+                    <select id="role" name="role" required>
+                        <option value="Support">Support</option>
+                        <option value="ADC">ADC</option>
+                        <option value="Mid">Mid</option>
+                        <option value="Jungle">Jungle</option>
+                        <option value="Top">Top</option>
+                    </select>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </div>
         <div class="stream-display">
             <div id="twitch-embed"></div>
-        </div>
-        <div id="streamerForm">
-            <h2>Add a streamer</h2>
-            <form action="process_form.php" method="POST">
-                <label for="streamerName">Streamer Name:</label>
-                <input type="text" id="streamerName" name="streamerName" placeholder="Rekkles" required>
-
-                <label for="role">Role:</label>
-                <select id="role" name="role" required>
-                    <option value="Top">Top</option>
-                    <option value="Jungle">Jungle</option>
-                    <option value="Mid">Mid</option>
-                    <option value="ADC">ADC</option>
-                    <option value="Support">Support</option>
-                    <option value="Entertainer">Entertainer</option>
-                </select>
-
-                <button type="submit">Submit</button>
-            </form>
         </div>
     </div>
 

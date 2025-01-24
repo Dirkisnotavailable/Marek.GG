@@ -11,7 +11,7 @@
     Runy hraca - DONE
     Itemy hraca - DONE
 -- Spraviť navbar, na preklikavanie medzi strankou na streamy, vyhladavanim hraca [DONE]
-}
+
 -----------
 30%-60%
 -- Urobit stranku kde budú streamy proplayerov ktorí práve streamuju [DONE]
@@ -27,12 +27,12 @@
 
 
 BUGY:
-ChampionStats nefunguju na typka co som predtym nehladal - viem ako fixnut asi
+--ChampionStats nefunguju na typka co som predtym nehladal [DONE]
 
 
 Doplnky:
 Urobit ze winrate svieti podla toho ci je dobry alebo nie
-Urobit v championstats ze kolko vyhier z kolko zapasov
+--Urobit v championstats ze kolko vyhier z kolko zapasov [DONE]
 
 
 JAK UROBIT PROVODS:
@@ -48,16 +48,31 @@ JAK UROBIT PROVODS:
 10.-- JEJ BUDE SETKO FUNGOVAT!!
 
 -- ROZPIS FETCHU TWITCHA:
-PRI PRIDAVANI SA FETCHNE IBA ID, NICK A ICONKA.
-PRI ZOBRAZOVANI SA FETCHNE CI JE LIVE, VIEWERCOUNT A TITLE
+--PRI PRIDAVANI SA FETCHNE IBA ID, NICK A ICONKA.[DONE]
+--PRI ZOBRAZOVANI SA FETCHNE CI JE LIVE, VIEWERCOUNT A TITLE [DONE]
 
 --POTREBUJEM:
 --Urobit ze sa dakde bude pridavat streamer, tento streamer sa zapise do databazy ak je admin ten co ho pridava [ĐONE]
 --Urobit ze sa fetchne z databazy id streamerov, vsetci sa prefetchuju, ak su online tak sa daju na hor.[DONE]
 --Urobit SignUp a LOGIN
-Urobit control panel pre admina, kde bude zoznam vsetkych streamerov a moznost ich pridat a odstranit
+--Urbit ze Login naozaj daco aj spravi [DONE]
 --Urobit ze sa stremeri budu moct delit podla role [DONE]
-DAT DO NAVBAR iconky
+--Urobit profile page [DONE]
+--Urobit dropdown v navbare [DONE]
+-- DAT DO NAVBAR iconky [DONE]
+-- Urobit zmenu emailu [DONE]
+-- Urobit zmenu krajiny [DONE]
+Urobit ze bude fungovat contact form v footeri
+Urobit mentors stranku
+Urobit team stranku 
+--Urobit ze to napise email ked sa zaregistruje [DONE]
+--Schovat countries [DONE]
+--CaseInsensitive Login [DONE]
+Urobit zmenu profile icon podlaa obrazku 
+-- Urobit zmena hesla [DONE]
+Urobit control panel pre admina, kde bude zoznam vsetkych streamerov a moznost ich pridat a odstranit
+Urobit playerpage cez GET
+
 
 
 

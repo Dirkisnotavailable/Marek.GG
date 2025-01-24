@@ -271,3 +271,6 @@ body {
     transform: translateY(-2px);
 }
 
+.addstreamerbutton {
+    margin-bottom: -5px;
+}

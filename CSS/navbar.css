@@ -29,9 +29,68 @@ nav .logo {
 
 nav .right-links {
     display: flex;
+    align-items: center;
     gap: 15px;
+    margin-left: auto; /* Ensure the right-links are aligned to the right */
 }
 
 nav a:hover {
     color: #40c9ff;
+}
+
+.username {
+    text-transform: none; 
+    font-weight: 200; 
+}
+
+.dropdown {
+    display: inline-block;
+    width: 150px;
+}
+
+.dropbtn {
+    background: transparent;
+    color: white;
+    padding: 20px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 20px;
+
+}
+
+.dropbtn i {
+    margin-right: 8px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #333;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-left: 20px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #575757;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #575757;
 }

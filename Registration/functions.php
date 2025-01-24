@@ -1,15 +1,12 @@
 <?php
-$dbhost = "localhost";
-$dbname="riseplayerdata";
-$User="riseadmin";
-$password="";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-try{
-    $conn = new PDO("mysql:host={$dbhost};dbname={$dbname};charset=utf8mb4", $User, $password);
-} catch(Exception $e){
-    $error = $e->getMessage();
-    echo "<p>Chyba:$error</p>";
-}
+require '../Library/PHPMailer/src/Exception.php';
+require '../Library/PHPMailer/src/PHPMailer.php';
+require '../Library/PHPMailer/src/SMTP.php';
+require_once "../Library/Database.php";
+$conn = (new Database())->getConnection();
 
 function getuser($nickname) {
     global $conn;
@@ -44,8 +41,9 @@ function adduser($nickname, $password, $email, $country)
         exit;
     } else {
         try {
-            $stmt = $conn->prepare("INSERT INTO users (nickname, password, email, country) VALUES (?, ?, ?, ?);");
-            $stmt->execute([$nickname, $password, $email, $country]);
+            $currentDate = date('Y-m-d H:i:s');
+            $stmt = $conn->prepare("INSERT INTO users (nickname, password, email, country, date_created) VALUES (?, ?, ?, ?, ?);");
+            $stmt->execute([$nickname, $password, $email, $country, $currentDate]);
             return "User successfully added!";
         }catch(Exception $e){
             echo "<p>Chyba: {$e->getMessage()}</p>";
@@ -53,6 +51,37 @@ function adduser($nickname, $password, $email, $country)
     }
 }
 
+function logout()
+{
+    session_start();
+    session_unset();
+    session_destroy();
+    header("Location: /Testik/index.php");
+}
 
+function sendemail($username, $email, $body)
+{
+//Posielanie emailu cez phpmailer
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->SMTPAuth = true;
+        $mail->Host = 'smtp.gmail.com'; 
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;  
+        $mail->Port = 465;
+        $mail->Username = "marekdotgg@gmail.com";
+        $mail->Password = "bysd kjyd srbi nptp";
+        $mail->setFrom('marekdotgg@gmail.com');
+        $mail->addAddress($email);  
+        $mail->isHTML(true);
+        $mail->Subject = 'Marek.GG - Successful registration';
+        $mail->Body = $body;
+    
+         $mail->send();
+        echo 'Message has been sent';
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
+}
 
 ?>

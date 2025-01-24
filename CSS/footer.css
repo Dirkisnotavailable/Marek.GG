@@ -33,7 +33,7 @@ footer {
 .contact span {
     display: block;
     margin: 10px 0;
-    margin-left: -10px;
+
 }
 
 .socials a {
@@ -55,11 +55,18 @@ footer {
 .footer-center-links ul {
     list-style-type: none;
 }
+.quick-links {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+}
 
 .quick-links a {
     color: #d3d3d3;
     text-decoration: none;
+    width: fit-content;
 }
+
 
 .footer-center ul a:hover,
 .footer-center-links ul a:hover {
@@ -73,6 +80,11 @@ footer {
     margin-bottom: 10px;
     color: #d3d3d3;
     width: 100%;
+}
+.contact-form textarea.text-input {
+    resize: vertical;
+    min-height: 32px;
+    max-height: 96px;       
 }
 
 .contact-form .btn {

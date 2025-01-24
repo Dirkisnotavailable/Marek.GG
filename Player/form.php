@@ -9,6 +9,7 @@
 
 <body>
     <?php
+    require_once './Library/sessionstart.php';
     require_once 'CSS/designfunctions.php';
     renderNavbar(); ?>
     <div class="container">

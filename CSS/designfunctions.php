@@ -1,4 +1,5 @@
 <?php
+
 function renderNavbar() {
     echo '
         <link rel="stylesheet" href="/Testik/CSS/navbar.css">
@@ -17,15 +18,32 @@ function renderNavbar() {
                 ProVods
             </a>
         </div>
-        <div class="right-links">
-            <a href="/Testik/Registration/registerform.php">
-                <i class="fas fa-user-plus"></i>
-                Signup
-            </a>
-            <a href="/Testik/Login/loginform.php">
-                <i class="fas fa-sign-in-alt"></i> 
-                Login
-            </a>
+        <div class="right-links">';
+    if (isset($_SESSION['usernickname'])) {
+        echo '
+        <div class="dropdown">
+            <button class="dropbtn">
+                <i class="fas fa-user"></i> '. $_SESSION['usernickname'] .'
+            </button>
+            <div class="dropdown-content">
+                <a href="/Testik/Profile/profile.php">Profile</a>';
+        if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+            echo '<a href="/Testik/Admin/adminpanel.php">Admin Panel</a>';
+        }
+        echo '<a href="/Testik/Logout/logout.php">Logout</a>
+            </div>
+        </div>';
+    } else {
+        echo '<a href="/Testik/Registration/registerform.php">
+                  <i class="fas fa-user-plus"></i>
+                  Signup
+              </a>
+              <a href="/Testik/Login/loginform.php">
+                  <i class="fas fa-sign-in-alt"></i> 
+                  Login
+              </a>';
+    }
+    echo '
         </div>
     </nav>
     ';
@@ -75,7 +93,7 @@ function renderFooter() {
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; marek.gg | Designed by Denis Hronec
+            ' . date("Y") . ' &copy; marek.gg | Designed by Denis Hronec
         </div>
     </footer>
     ';

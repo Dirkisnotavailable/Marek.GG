@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+require_once './Library/sessionstart.php';
 // https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/aah/help?api_key=RGAPI-88d91615-a9eb-4813-873a-47e50df212cc
 $main_url = "https://europe.api.riotgames.com" ;
 $api_key = "RGAPI-88d91615-a9eb-4813-873a-47e50df212cc";

@@ -1,5 +1,5 @@
 body {
-    font-family: 'Outfit'; /* Updated font-family */
+    font-family: 'Outfit'; 
     background: url('../CSS/bg.svg') no-repeat center center fixed;
     background-size: cover;
     color: #e0e0e0; 
@@ -9,15 +9,16 @@ body {
 
 #form-container {
     display: flex;
-    align-items: center; /* Center items vertically */
+    align-items: center; 
     justify-content: center;
-    background-color: #1e1e1e; /* Form background color */
+    background-color: #1e1e1e; 
     border-radius: 10px;
     padding: 20px;
     width: 1000px;
     margin: 50px auto;
-    position: relative; /* Add relative positioning */
+    position: relative; 
     margin-bottom: 60px;
+    opacity: 0.8;
 }
 
 #form-image {
@@ -26,16 +27,16 @@ body {
     max-width: 450px;
     margin-right: 50px;
     border-radius: 10px;
-    object-position: right; /* Show the right side of the image */
+    object-position: right;
 }
 
 #formhead {
-    position: absolute; /* Position the header absolutely */
-    top: 7%; /* Position it at 70% height */
-    right: 105px; /* Position it on the right side */
+    position: absolute;
+    top: 7%;
+    right: 105px;
     font-size: 40px; 
     color: #ffffff;
-    background-color: rgba(30, 30, 30, 0.8); /* Add background for better visibility */
+    background-color: rgba(30, 30, 30, 0.8); 
     padding: 10px;
     border-radius: 5px;
 }
@@ -64,7 +65,7 @@ body {
 .form-group-names input{
     width: 445px;
     padding: 10px;
-    border: 1px solid #555; /* Updated border color */
+    border: 1px solid #555; 
     border-radius: 5px;
     background-color: #2e2e2e;
     height: 29px;
@@ -90,14 +91,14 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
 select:focus {
-    color: #ffffff; /* Ensure text color remains white on focus */
-    border-color: #70186d; /* Optional: Change border color on focus */
+    color: #ffffff;
+    border-color: #70186d; 
 }
 
 #country {
     width: 466px;
     padding: 10px;
-    border: 1px solid #555; /* Updated border color */
+    border: 1px solid #555; 
     border-radius: 5px;
     background-color: #2e2e2e;
     height: 50px;
@@ -113,7 +114,7 @@ select:focus {
     padding: 15px;
     border: none;
     border-radius: 5px;
-    background-color: #6a0dad; /* Updated shade of purple */
+    background-color: #6a0dad;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -121,14 +122,14 @@ select:focus {
 }
 
 #submit-button:hover {
-    background-color: #5a0c9d; /* Darker shade for hover effect */
+    background-color: #5a0c9d;
 }
 
 #TOS {
     width: 20px;
     height: 20px;
     cursor: pointer;
-    accent-color: #6a0dad; /* Updated shade of purple */
+    accent-color: #6a0dad; 
 }
 
 .TOS-text{
@@ -144,7 +145,7 @@ select:focus {
 }
 
 .TOS-text a {
-    text-decoration: none; /* Optional: Remove underline */
+    text-decoration: none;
 }
 .TOS-text a:hover {
     text-decoration: underline;

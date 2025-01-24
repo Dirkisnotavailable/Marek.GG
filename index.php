@@ -9,6 +9,7 @@
 <body>
 
 <?php
+    require_once './Library/sessionstart.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'GET')
     require 'Player/form.php';

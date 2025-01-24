@@ -1,5 +1,5 @@
 body {
-    font-family: 'Outfit'; /* Updated font-family */
+    font-family: 'Outfit', sans-serif;
     background: url('../CSS/bg.svg') no-repeat center center fixed;
     background-size: cover;
     color: #e0e0e0; 
@@ -9,14 +9,14 @@ body {
 
 #form-container {
     display: flex;
-    align-items: center; /* Center items vertically */
+    align-items: center;
     justify-content: center;
-    background-color: #1e1e1e; /* Form background color */
+    background-color: rgba(30, 30, 30, 0.8);
     border-radius: 10px;
     padding: 20px;
     width: 1000px;
     margin: 50px auto;
-    position: relative; /* Add relative positioning */
+    position: relative;
     margin-bottom: 60px;
 }
 
@@ -49,16 +49,15 @@ body {
     margin-right: 0;
 }
 
-.form-group-names input{
+.form-group-names input {
     width: 445px;
     padding: 10px;
-    border: 1px solid #555; /* Updated border color */
+    border: 1px solid #555; 
     border-radius: 5px;
     background-color: #2e2e2e;
     height: 29px;
-    color: #ffffff
+    color: #ffffff;
 }
-
 
 #password {
     width: 445px;
@@ -68,18 +67,19 @@ body {
     background-color: #2e2e2e;
     height: 29px;
     color: #ffffff; 
-
 }
+
 input:-webkit-autofill {
     color: #ffffff !important;
     box-shadow: 0 0 0px 1000px #2e2e2e inset !important;
 }
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
 select:focus {
-    color: #ffffff; /* Ensure text color remains white on focus */
-    border-color: #70186d; /* Optional: Change border color on focus */
+    color: #ffffff;
+    border-color: #70186d;
 }
 
 .form-row input::placeholder {
@@ -91,7 +91,7 @@ select:focus {
     padding: 15px;
     border: none;
     border-radius: 5px;
-    background-color: #6a0dad; /* Updated shade of purple */
+    background-color: #6a0dad; 
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -99,43 +99,48 @@ select:focus {
 }
 
 #submit-button:hover {
-    background-color: #5a0c9d; /* Darker shade for hover effect */
+    background-color: #5a0c9d; 
 }
 
 #TOS {
     width: 20px;
     height: 20px;
     cursor: pointer;
-    accent-color: #6a0dad; /* Updated shade of purple */
+    accent-color: #6a0dad;
 }
 
-.TOS-text{
+.TOS-text {
     margin-top: 20px;
     font-size: 16px;
     color: white;
     margin-top: 2px;
     margin-left: 15px;
-
 }
+
 .form-row-TOS {
     display: flex;
 }
 
 .TOS-text a {
-    text-decoration: none; /* Optional: Remove underline */
+    text-decoration: none; 
 }
+
 .TOS-text a:hover {
     text-decoration: underline;
 }
-#login {
+
+.login {
     display: flex;
-    color: #ffffff;}
-#login a {
-    margin-left: 10px; 
-    text-decoration: none;
+    color: #ffffff;
 }
 
-#login a:hover {
+.login a {
+    margin-left: 10px; 
+    text-decoration: none;
+    color: #6a0dad !important;
+}
+
+.login a:hover {
     text-decoration: underline; 
 }
 
@@ -143,16 +148,20 @@ select:focus {
     height: 150px;
     display: flex;
     margin-left: 160px;
-    margin-top: -100px;
+    margin-top: -90px;
 }
+
 #formhead {
     position: flex;
     font-size: 60px; 
     color: #ffffff;
-    background-color: rgba(30, 30, 30, 0.8); /* Add background for better visibility */
+    background-color: rgba(30, 30, 30, 0); 
     margin-left: 90px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
-
+.forgotpassword a{
+    text-decoration: none;
+    color: #6a0dad !important;
+}

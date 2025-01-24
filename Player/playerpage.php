@@ -1,5 +1,6 @@
 <?php
-session_start();
+error_reporting(E_ALL & ~E_NOTICE);
+require_once '../Library/sessionstart.php';
 $profileicon = isset($_SESSION['iconid']) ?$_SESSION['iconid'] : 'nothing';
 $nickname = isset($_SESSION['nickname']) ? $_SESSION['nickname'] : 'NO PLAYER';
 $level = isset($_SESSION['level']) ? $_SESSION['level'] : '0';
@@ -27,7 +28,6 @@ if ($losses_solo != 0)
   $winrate_solo = ($wins_solo/($wins_solo+$losses_solo) * 100);
   $winrate_solo = round($winrate_solo);
 }
-
 include('../CSS/designfunctions.php');
 ?>
 
@@ -59,6 +59,8 @@ include('../CSS/designfunctions.php');
     <?php
       require_once 'matchhistory.php';
       require_once 'functions.php';
+      $alldata = getMatchhistory($nickname, $puuid, $level, $profileicon);
+
 
 $championwin = getchampionWinrate($nickname);
 $championgames = getChampiongames($nickname); 
@@ -183,7 +185,6 @@ foreach ($championWinrates as $champion) {
     </div>
   </div>
   <?php
-  $alldata = getMatchhistory($nickname, $puuid, $level, $profileicon);
   /*echo "<pre>";
   var_dump($alldata);
   echo "</pre>"; */

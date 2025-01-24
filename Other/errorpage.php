@@ -8,7 +8,8 @@
 </head>
 <body>
 <?php
-    require_once 'C:/laragon/www/Testik/Player/designfunctions.php';
+    require_once '../Library/sessionstart.php';
+    require_once '../CSS/designfunctions.php';
     renderNavbar(); ?>
     <div class="container">
         <div class="error-icon">
