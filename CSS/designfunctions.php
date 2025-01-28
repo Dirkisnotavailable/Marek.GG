@@ -28,7 +28,7 @@ function renderNavbar() {
             <div class="dropdown-content">
                 <a href="/Testik/Profile/profile.php">Profile</a>';
         if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-            echo '<a href="/Testik/Admin/adminpanel.php">Admin Panel</a>';
+            echo '<a href="/Testik/Adminpanel/dashboard.php">Admin Panel</a>';
         }
         echo '<a href="/Testik/Logout/logout.php">Logout</a>
             </div>
@@ -47,6 +47,19 @@ function renderNavbar() {
         </div>
     </nav>
     ';
+}
+function rendersidebar() {
+  echo '
+  <link rel="stylesheet" href="/Testik/CSS/sidebar.css">
+  <div class="sidebar">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="/Testik/adminpanel/dashboard.php">Dashboard</a></li>
+                <li><a href="/Testik/adminpanel/users.php">Users</a></li>
+                <li><a href="/Testik/adminpanel/streamers.php">Streamers</a></li>
+                <li><a href="/Testik/adminpanel/settings.php">Settings</a></li>
+            </ul>
+        </div>';
 }
 
 function renderFooter() {
@@ -82,9 +95,9 @@ function renderFooter() {
             <div class="footer-center contact-form">
                 <h2>Contact us</h2>
                 <br>
-                <form action="index.html" method="post">
-                    <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
-                    <textarea name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+                <form action="/Testik/Other/footerprocess_form.php" method="post">
+                    <input type="email" name="email" required class="text-input contact-input" placeholder="Your email address...">
+                    <textarea name="message" required class="text-input contact-input" placeholder="Your message..."></textarea>
                     <button type="submit" class="btn btn-big">
                         <i class="fas fa-envelope"></i>
                         Send

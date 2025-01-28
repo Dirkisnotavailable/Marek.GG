@@ -25,7 +25,13 @@ if(!isset($_SESSION['usernickname']))
     ?>
     <div class="container">
         <div class="containerleft">
-            <img class= "profileimage" src="account.png" alt="Profile image">
+            <?php if ($_SESSION['role'] == 'admin')
+            {
+                echo '<img class= "profileimage" src="account.png" alt="Profile image">';
+            } else {
+                echo '<img class= "profileimage" src="https://ui-avatars.com/api/?background=random&name= ' . $_SESSION['usernickname'] . '&size=128" alt="Profile image">';
+            }
+            ?>
         </div>
         <div class="containerright">
             <div class="profilenick">
@@ -65,13 +71,6 @@ if(!isset($_SESSION['usernickname']))
                 <p class="info3">Created on: <?php echo date("d.m.Y H:i", strtotime($_SESSION['date'])) ?></p>
             </div>
             <div class="profile-button">
-                <?php
-                if ($_SESSION['role'] == 'admin') {
-                    echo '<a href="/Testik/Admin/adminpanel.php" class="button">Admin Panel</a>';
-                } else {
-                    echo '<a href="/Testik/Profile/forgotpassword.php" class="button">Reset Password</a>';
-                }
-                ?>
             </div>
         </div>
     </div>

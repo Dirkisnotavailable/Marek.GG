@@ -19,6 +19,13 @@ function getuser($nickname) {
     }
 }
 
+function getUserByEmail($email) {
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->execute([$email]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 function removeuser($nickname)
 {
     global $conn;

@@ -1,0 +1,59 @@
+.sidebar:hover ~ .main-content {
+    margin-right: 220px; 
+    width: calc(100% - 220px); 
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+.sidebar {
+    width: 0;
+    background-color: #2e2e2e;
+    color: #fff;
+    padding: 15px;
+    height: 100vh;
+    position: fixed; /* Make the sidebar fixed */
+    right: 0;
+    overflow: hidden;
+    transition: width 0.3s;
+    z-index: 1000; /* Ensure the sidebar appears above other elements */
+    top: 0; /* Ensure the sidebar stays at the top */
+}
+
+.sidebar:hover {
+    width: 200px; /* Reduced width */
+}
+
+.sidebar h2, .sidebar ul {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar:hover h2, .sidebar:hover ul {
+    opacity: 1;
+}

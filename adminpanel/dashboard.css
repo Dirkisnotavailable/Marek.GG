@@ -1,0 +1,74 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('/Testik/CSS/bg.svg') no-repeat center center fixed;
+    background-size: cover;
+    color: #e0e0e0; 
+    margin: 0;
+    padding: 0;
+}
+
+.admin-container {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    flex-direction: column; /* Stack the header and cards vertically */
+    align-items: center; /* Center the content horizontally */
+}
+
+.main-content {
+    margin-right: 20px;
+    padding: 20px;
+    transition: margin-right 0.3s;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Stack the header and cards vertically */
+    align-items: center; /* Center the content horizontally */
+    height: 100vh; /* Full height to center vertically */
+}
+
+.main-content h1 {
+    font-size: 48px; 
+    text-align: center; 
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 700; 
+    color: #ffffff;
+}
+
+.dashboard-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 100%;
+    gap: 20px;
+}
+
+.card {
+    background-color: #444; /* Changed to a lighter shade */
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    text-align: center;
+    margin: 2px; /* Further reduced margin to make the gap smaller */
+    position: relative;
+    transition: transform 0.3s; /* Added transition for hover effect */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.card i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.2); /* Added background for icons */
+    border-radius: 50%; /* Circular background */
+    padding: 10px;
+}
+
+.card h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}

@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $template = file_get_contents('forgotpassword.html');
         $body = str_replace(["{{name}}", "{{operating_system}}", "{{action_url}}"], [$nickname, $OS, $actionlink], $template);
         sendemail($nickname, $email, $body);
-        header("Location: /Testik/index.php");
+        header("Location: /Testik/index.php?success=4");
     }
 }
 

@@ -68,10 +68,17 @@ Urobit team stranku
 --Urobit ze to napise email ked sa zaregistruje [DONE]
 --Schovat countries [DONE]
 --CaseInsensitive Login [DONE]
-Urobit zmenu profile icon podlaa obrazku 
+-- Urobit ze sa uzivatelovi zobrazi obrazok profila podla jeho nicku [DONE]
 -- Urobit zmena hesla [DONE]
-Urobit control panel pre admina, kde bude zoznam vsetkych streamerov a moznost ich pridat a odstranit
+-- Urobit alarmy pre uspesnu registraciu a uspesnu zmenu hesla [DONE]
+-- Urobit ze sa zobrazi na stranke errory s prihlasovanim [DONE]
+--Urobit control panel pre admina, kde bude zoznam vsetkych streamerov [DONE]m
+-- Moznost ich pridat a odstranit [DONE]
+
+
+
 Urobit playerpage cez GET
+
 
 
 

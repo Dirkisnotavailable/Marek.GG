@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marek.gg - ProVods</title>
     <link rel="stylesheet" href="/Testik/Provods/provods.css">
-    <style>
-        #streamerForm {
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <?php
@@ -49,23 +44,7 @@
                           </li>';
                 }
                 ?>
-                <button onclick="toggleForm()" class="addstreamerbutton">Add Streamer</button>
             </ul>
-            <div id="streamerForm">
-                <form>
-                    <label for="streamerName">Streamer Name:</label>
-                    <input type="text" id="streamerName" name="streamerName" required>
-                    <label for="role">Role:</label>
-                    <select id="role" name="role" required>
-                        <option value="Support">Support</option>
-                        <option value="ADC">ADC</option>
-                        <option value="Mid">Mid</option>
-                        <option value="Jungle">Jungle</option>
-                        <option value="Top">Top</option>
-                    </select>
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
         </div>
         <div class="stream-display">
             <div id="twitch-embed"></div>
@@ -111,45 +90,6 @@
                     .catch(error => console.error('Error:', error));
             }
         }
-
-        function toggleForm() {
-            var form = document.getElementById('streamerForm');
-            if (form.style.display === 'none' || form.style.display === '') {
-                form.style.display = 'block';
-            } else {
-                form.style.display = 'none';
-            }
-        }
-        
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById('streamerForm').style.display = 'none';
-
-            document.querySelector('#streamerForm form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                var formData = new FormData(this);
-                fetch('process_form.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        return response.text().then(text => { throw new Error(text); });
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    alert('Streamer added successfully!');
-                    document.querySelector('.streamers-list ul').innerHTML += data;
-                    document.querySelector('#streamerForm form').reset();
-                    document.getElementById('streamerForm').style.display = 'none';
-                })
-                .catch(error => {
-                    alert(error.message);
-                    console.error('Error:', error);
-                    toggleForm();
-                });
-            });
-        });
     </script>
 </body>
 <footer>

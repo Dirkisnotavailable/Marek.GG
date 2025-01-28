@@ -12,12 +12,22 @@
 <body>
     <?php 
     require_once '../Library/sessionstart.php';
+    if (isset($_SESSION['usernickname']))
+    {
+        header("Location: /Testik/Profile/profile.php");
+        exit();
+    }
     require_once '../CSS/designfunctions.php';
     renderNavbar(); ?>
 
 <div id="form-container">
     <header id="formhead">Create an account!</header>
     <img id="form-image" src="kaisa.gif" alt="Form Image">
+    <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+        <script>
+            alert("Registration successful! Please check your email for confirmation.");
+        </script>
+    <?php endif; ?>
     <form id="registrationform" action="regprocessform.php" method="post">
         <div class="form-row">
             <div class="form-group-names">
@@ -43,6 +53,9 @@
             <input id="TOS" type="checkbox" name="TOS" required>
             <p class = "TOS-text">I agree to the <a href="/Testik/Other/TermsAndConditions.php">Terms of Service</a></p>
         </div>
+        <?php if (isset($_SESSION['error'])): ?>
+            <div class="error-message"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></div>
+        <?php endif; ?>
         <div class="form-row">
             <button id="submit-button" type="submit">Register</button>
         </div>

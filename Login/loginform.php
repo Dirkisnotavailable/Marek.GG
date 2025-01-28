@@ -39,6 +39,9 @@ if(isset($_SESSION['usernickname']))
                 <input id="password" type="password" name="password" required placeholder="Password" autocomplete="new-password">     
         </div>
             <p class="forgotpassword"><a href="/Testik/Forgotpassword/forgotpasswordform.php">Forgot password?</a></p>
+            <?php if (isset($_SESSION['error'])): ?>
+            <div class="error-message"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></div>
+        <?php endif; ?>
             <button id="submit-button" type="submit">Login</button>
             <p class="login">Don't have an account? <a href="/Testik/Registration/registerform.php">Register!</a></p>
         </div>

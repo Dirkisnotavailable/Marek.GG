@@ -1,5 +1,5 @@
 <?php 
-require_once "../Library/Database.php";
+require_once __DIR__ . "/../Library/Database.php";
 $conn = (new Database())->getConnection();
 
 function insertdata($player_nick, $level, $icon){
@@ -121,7 +121,7 @@ function getMatchhistory($player_nick, $puuid, $summonerlevel, $profileIconId){
 //
 function fetchMatchesfromDB($nickname){
 global $conn;
-$stmt = $conn->prepare("SELECT * FROM player_matches WHERE player_id = ? order by gamestart desc");
+$stmt = $conn->prepare("SELECT * FROM player_matches WHERE player_id = ? order by gamestart desc LIMIT 20");
 $stmt->execute([$nickname]);
 $databasedata = $stmt->fetchAll(PDO::FETCH_ASSOC);
 return $databasedata;

@@ -23,6 +23,17 @@ if (isset($_GET['code'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var passwordConfirm = document.getElementById("password_confirm").value;
+            if (password !== passwordConfirm) {
+                alert("Passwords do not match!");
+                return false; 
+            }
+            return true;
+        }
+    </script>
 </head>
 
 <body>
@@ -32,7 +43,7 @@ if (isset($_GET['code'])) {
 
     <div id="form-container">
         <img id="form-image" src="jhin.gif" alt="Form Image">
-        <form id="registrationform" action="processresetpassword.php" method="post">
+        <form id="registrationform" action="processresetpassword.php" method="post" onsubmit="return validateForm()">
             <img id="login-image" src="account.png" alt="">
             <header id="formhead">Change password
             </header>

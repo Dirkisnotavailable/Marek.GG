@@ -12,8 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user) {
         $hashedPassword = $user['password'];
         $hashedPassword = trim($hashedPassword);
-        echo "Entered Password: " . $password . "<br>";
-        echo "Stored Hashed Password: " . $hashedPassword . "<br>";
         
         if (password_verify($password, $hashedPassword)) {
             $_SESSION['user_id'] = $user['id'];
@@ -22,13 +20,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $user['email'];
             $_SESSION['country'] = $user['country'];
             $_SESSION['date'] = $user['date_created'];
-            header("Location: /Testik/index.php");
+            header("Location: /Testik/index.php?success=2");
             exit();
         } else {
-            echo "Invalid password.";
+            $_SESSION['error'] = "Invalid password.";
+            header("Location: /Testik/Login/loginform.php");
+            exit();
         }
     } else {
-        echo "Invalid nickname.";
+        $_SESSION['error'] = "User not found.";
+        header("Location: /Testik/Login/loginform.php");
+        exit();
     }
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL & ~E_NOTICE);
+// error_reporting(E_ALL & ~E_NOTICE);
 require_once '../Library/sessionstart.php';
 $profileicon = isset($_SESSION['iconid']) ?$_SESSION['iconid'] : 'nothing';
 $nickname = isset($_SESSION['nickname']) ? $_SESSION['nickname'] : 'NO PLAYER';
@@ -197,6 +197,11 @@ foreach ($championWinrates as $champion) {
   }
   ?>
 </body>
+<footer>
+    <?php
+    renderFooter();
+    ?>
+</footer>
 </html>
 
 

@@ -134,7 +134,7 @@ function getPlayerData()
      $_SESSION['lp_flex'] = $player_LP_flex;
      $_SESSION['iconid'] = $profileIconId;
      $_SESSION['puuid'] = $puuid;
-
+     // HERE
      require_once "functions.php";
      require_once "matchhistory.php";
      header("Location: Player/playerpage.php");
