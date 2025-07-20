@@ -12,14 +12,14 @@
 
 Click a feature to jump to its section:
 
-- [📊 League of Legends Stats Viewer](#-league-of-legends-stats-viewer)
-- [🎥 ProVods – Stream Aggregator](#-provods--stream-aggregator)
+- [📊 League of Legends Stats Viewer](#league-of-legends-stats-viewer)
+- [🎥 ProVods – Stream Aggregator](#provods--stream-aggregator)
 - [🗨️ Zed – Community Forum](#zed--community-forum)
 - [🛡️ Admin Panel & User System](#admin-panel--user-system)
 
 ---
 
-### 📊 League of Legends Stats Viewer
+### 📊 League of Legends Stats Viewer {#league-of-legends-stats-viewer}
 
 View up-to-date statistics for players across all major regions.  
 Track player performance, rank progression, and match history with a clean and modern design.  
@@ -29,7 +29,7 @@ Track player performance, rank progression, and match history with a clean and m
 
 ---
 
-### 🎥 ProVods – Stream Aggregator
+### 🎥 ProVods – Stream Aggregator {#provods--stream-aggregator}
 
 Browse a curated collection of live streams from top League of Legends streamers.  
 Watch directly from the platform and stay connected with the scene in real time.  
@@ -39,7 +39,7 @@ Admins can manage and moderate which streamers appear on the site.
 
 ---
 
-### 🗨️ Zed – Community Forum
+### 🗨️ Zed – Community Forum {#zed--community-forum}
 
 Zed is the built-in forum where players can:
 
@@ -53,7 +53,7 @@ Built with simplicity and a clean UI in mind.
 
 ---
 
-### 🛡️ Admin Panel & User System
+### 🛡️ Admin Panel & User System {#admin-panel--user-system}
 
 Marek.GG includes a fully functional account system and admin interface, offering:
 
@@ -64,11 +64,9 @@ Marek.GG includes a fully functional account system and admin interface, offerin
 
 Security and control were key priorities in building this functionality.
 
-![Admin Panel Screenshot #1](assets/adminpanel1.png)
-
-![Admin Panel Screenshot #2](assets/adminpanel2.png)
-
-![Admin Panel Screenshot #2](assets/forgotpassword.png)
+![Admin Panel Screenshot #1](assets/adminpanel1.png)  
+![Admin Panel Screenshot #2](assets/adminpanel2.png)  
+![Admin Panel Screenshot #3](assets/forgotpassword.png)
 
 ---
 
