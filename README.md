@@ -1,7 +1,8 @@
-# Marek.GG
+# Marek.GG  
 
-**Marek.GG** is a web platform designed for League of Legends enthusiasts. It combines competitive insights, real-time streamer discovery, and community engagement in one central hub.  
-Whether you're tracking ranked stats, watching pro players live, or diving into meta discussions—Marek.GG brings it all together.
+**Marek.GG** is a web platform designed for *League of Legends* enthusiasts, combining competitive insights, real-time streamer discovery, and community engagement in one central hub. Whether you're tracking ranked stats, watching pro players live, or diving into meta discussions, Marek.GG brings it all together.  
+
+*This project was originally developed as my final school assignment at SPŠJM (a technical high school) in Slovakia.*  
 
 ![Main Page](assets/index.png)
 
