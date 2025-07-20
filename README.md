@@ -14,7 +14,7 @@ Click a feature to jump to its section:
 
 - [📊 League of Legends Stats Viewer](#-league-of-legends-stats-viewer)
 - [🎥 ProVods – Stream Aggregator](#-provods--stream-aggregator)
-- [🗨️ Zed – Community Forum](#-zed--community-forum)
+- [🗨️ Zed – Community Forum]([#-zed--community-forum])
 - [🛡️ Admin Panel & User System](#-admin-panel--user-system)
 
 ---
