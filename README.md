@@ -3,6 +3,8 @@
 **Marek.GG** is a web platform designed for League of Legends enthusiasts. It combines competitive insights, real-time streamer discovery, and community engagement in one central hub.  
 Whether you're tracking ranked stats, watching pro players live, or diving into meta discussions—Marek.GG brings it all together.
 
+![Main Page](assets/index.png)
+
 ---
 
 ## 🚀 Features
@@ -22,7 +24,7 @@ View up-to-date statistics for players across all major regions.
 Track player performance, rank progression, and match history with a clean and modern design.  
 **[Note: This feature is currently outdated due to changes in the Riot API.]**
 
-![Stats Viewer Screenshot](assets/stats-viewer.png)
+![Stats Viewer Screenshot](assets/playerpage.png)
 
 ---
 
@@ -61,11 +63,9 @@ Marek.GG includes a fully functional account system and admin interface, offerin
 
 Security and control were key priorities in building this functionality.
 
-![Admin Panel Screenshot #1](assets/admin-panel.png)
+![Admin Panel Screenshot #1](assets/adminpanel1.png)
 
-![Admin Panel Screenshot #2](assets/admin-panel2.png)
-
-![Admin Panel Screenshot #3](assets/admin-panel3.png)
+![Admin Panel Screenshot #2](assets/adminpanel2.png)
 
 ---
 
