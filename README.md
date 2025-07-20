@@ -13,8 +13,8 @@ Click a feature to jump to its section:
 
 - [📊 League of Legends Stats Viewer](#-league-of-legends-stats-viewer)
 - [🎥 ProVods – Stream Aggregator](#-provods--stream-aggregator)
-- [🗨️ Zed – Community Forum](#-zed--community-forum)
-- [🛡️ Admin Panel & User System](#-admin-panel--user-system)
+- [🗨️ Zed – Community Forum](#zed--community-forum)
+- [🛡️ Admin Panel & User System](#admin-panel--user-system)
 
 ---
 
@@ -48,7 +48,7 @@ Zed is the built-in forum where players can:
 
 Built with simplicity and a clean UI in mind.
 
-![Zed Forum Screenshot](assets/zed-forum.png)
+![Zed Forum Screenshot](assets/zed.png)
 
 ---
 
@@ -66,6 +66,8 @@ Security and control were key priorities in building this functionality.
 ![Admin Panel Screenshot #1](assets/adminpanel1.png)
 
 ![Admin Panel Screenshot #2](assets/adminpanel2.png)
+
+![Admin Panel Screenshot #2](assets/forgotpassword.png)
 
 ---
 
